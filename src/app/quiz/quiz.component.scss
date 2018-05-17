@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    grid-template-columns: 50% auto;
+  }
+
+  .col{
+    padding:.4em 1.3em;
+  }
+
+  .color-dark{
+    background:#2885C4;
+  }
+
+  .color-light{
+    background:#57D3F1;
+  }
+
+.life-container{
+    background:#3FA0E1;
+    padding:.2em;
+    font-weight:bold;
+    cursor:pointer;
+  }
+
+.submits{
+    background:#ED4337;
+    padding:.2em;
+    font-weight:bold;
+    cursor:pointer;
+  }
+.choiceTrue{
+  color: green;
+}
+.choiceFalse{
+  color: red;
+}

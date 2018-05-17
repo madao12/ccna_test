@@ -1,0 +1,50 @@
+.container {
+  display: grid;
+  grid-template-columns: 50% auto;
+}
+
+.col {
+  padding: .4em 1.3em;
+}
+
+.col2 {
+  padding: .4em 1.3em;
+  height: 650px;
+}
+
+.color-dark {
+  background: rgb(124, 197, 247);
+}
+
+.life-container {
+  padding: .2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.life-container:hover {
+  background: rgb(108, 177, 223);
+  padding: .2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.life-container:active {
+  background: rgb(28, 147, 226);
+  padding: .2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submits {
+  background: rgb(28, 147, 226);
+  padding: 0.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+li {
+  width: 80%;
+  height: 35px;
+}
+

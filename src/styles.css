@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:600');
+
+
+body {
+  background: #f1f2f3;
+  padding: 1em;
+  font-family: 'Fira Sans', 'Arial';
+  color: #414040;
+}
+
+a {
+  font-size: 2em;
+  color: #f1f0f0;
+  text-decoration: none;
+}
+
+.d.ui-accordion {
+  width: 80%;
+
+
+}
+
+.ui-accordion-header {
+  font-size: 0.5em;
+}
+.ui-accordion-content{
+  font-size: 1em;
+
+}
+
+.e.ui-fieldset{
+  width: 80%;
+  font-size: 1em;
+
+
+}
+.ui-fieldset-legend{
+  font-size: 0.7em;
+}

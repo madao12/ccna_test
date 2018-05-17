@@ -1,0 +1,68 @@
+<!--
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+<div *ngIf="question; else showResults">
+
+
+  <h2>{{question.name}}(Choose {{question.numberOfAnswers}})</h2>
+
+  <img class="img-responsive" style = "width: 500px " src="assets/images/{{question.id}}.png" alt=""/>
+
+  <ul style="list-style-type:none">
+    <li  *ngFor="let choice of choices;index as i" >
+      <h3>{{numToLetter(i)}})<input #c (change)="onClick(choice.istrue,c)" type="checkbox"  name="choice"  />{{choice.answear}}</h3>
+    </li>
+  </ul>
+
+
+    Number Of Answers: {{question.numberOfAnswers}} <br><br>
+    Correct answers(must be {{question.numberOfAnswers}}) : {{correctOption}} <br><br>
+    Wrong answers(must be 0): {{wrongOption}}<br><br>
+
+  <input type="submit">
+</div>
+
+</form>
+-->
+<div *ngIf="question; else showResults">
+  <p-progressBar [value]="progress" [showValue]="false"></p-progressBar>
+
+
+  <h2>{{question.name}}(Choose {{question.numberOfAnswers}})</h2>
+
+  <img class="img-responsive" style="width: 500px " src="assets/images/{{question.id}}.png" alt="" />
+  <ul style="list-style-type:none">
+    <li *ngFor="let choice of choices;index as i">
+      <h3>{{numToLetter(i)}})
+        <input #c type="checkbox" (change)="onClick(choice.istrue,c)" name="choice" />{{choice.answear}}</h3>
+    </li>
+  </ul>
+
+
+  <br>
+  <br> Correct answers(must be {{question.numberOfAnswers}}) : {{correctOption}}
+  <br>
+  <br> Wrong answers(must be 0): {{wrongOption}}
+  <br>
+  <br>
+
+
+
+
+
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+      <button pButton label="Next" type="button" style="width: 150px" (click)="getNextQuestion()"></button>
+    </div>
+  </div>
+</div>
+
+<ng-template #showResults>
+    <nav>
+        <a class="life-container" routerLink="">Home</a>
+      </nav>
+  <p>Απάντησες σωστά σε <b>{{correct}}</b> από τις <b>{{numberOfQuestions}}</b> ερωτήσεις! </p>
+  <app-details></app-details>
+
+
+</ng-template>
