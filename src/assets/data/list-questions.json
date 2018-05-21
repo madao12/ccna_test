@@ -469,6 +469,357 @@
         "istrue": false
       }
     ]
+  },
+  {
+    "id": "19",
+    "numberOfAnswers": 1,
+    "name": "What must occur before a workstation can exchange HTTP packets with a web server?",
+    "explanation": "HTTP uses TCP port 80, and a TCP port 80 connection must be established for HTTP communication to occur. http://pentestlab.wordpress.com/2012/03/05/common-tcpip-ports/",
+    "choices": [{
+        "answear": "A UDP connection must be established between the workstation and its default gateway.",
+        "istrue": false
+      },
+      {
+        "answear": "A UDP connection must be established between the workstation and the web server.",
+        "istrue": false
+      },
+      {
+        "answear": "A TCP connection must be established between the workstation and its default gateway.",
+        "istrue": false
+      },
+      {
+        "answear": "A TCP connection must be established between the workstation and the web server.",
+        "istrue": true
+      },
+      {
+        "answear": "An ICMP connection must be established between the workstation and its default gateway.",
+        "istrue": false
+      },
+      {
+        "answear": "An ICMP connection must be established between the workstation and the web server.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "numberOfAnswers": 2,
+    "name": "How does TCP differ from UDP?",
+    "explanation": "Because TCP is a connection-oriented protocol responsible for ensuring the transfer of a datagram from the source to destination machine (end-to-end communications), TCP must receive communications messages from the destination machine to acknowledge receipt of the datagram. The term virtual circuit is usually used to refer to the handshaking that goes on between the two end machines, most of which are simple acknowledgment messages (either confirmation of receipt or a failure code) and datagram sequence numbers. Rather than impose a state within the network to support the connection, TCP uses synchronized state between the two endpoints. This synchronized state is set up as part of an initial connection process, so TCP can be regarded as a connection-oriented protocol. Much of the protocol design is intended to ensure that each local state transition is communicated to, and acknowledged by, the remote party. Reference: http://en.wikibooks.org/wiki/Communication_Networks/TCP_and_UDP_Protocols",
+    "choices": [{
+        "answear": "TCP provides best effort delivery.",
+        "istrue": false
+      },
+      {
+        "answear": "TCP provides synchronized communication.",
+        "istrue": true
+      },
+      {
+        "answear": "TCP segments are essentially datagrams.",
+        "istrue": false
+      },
+      {
+        "answear": "TCP provides sequence numbering of packets.",
+        "istrue": true
+      },
+      {
+        "answear": "TCP uses broadcast delivery.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "numberOfAnswers": 1,
+    "name": "A workstation has just resolved a browser URL to the IP address of a server. What protocol will the workstation now use to determine the destination MAC address to be placed into frames directed toward the server?",
+    "explanation": "The RARP protocol is used to translate hardware interface addresses to protocol addresses. The RARP message format is very similar to the ARP format. When the booting computer sends the broadcast ARP request, it places its own hardware address in both the sending and receiving fields in the encapsulated ARP data packet. The RARP server will fill in the correct sending and receiving IP addresses in its response to the message. This way the booting computer will know its IP address when it gets the message from the RARP server.",
+    "choices": [{
+        "answear": "HTTP",
+        "istrue": false
+      },
+      {
+        "answear": "DNS",
+        "istrue": false
+      },
+      {
+        "answear": "DHCP",
+        "istrue": false
+      },
+      {
+        "answear": "RARP",
+        "istrue": false
+      },
+      {
+        "answear": "ARP",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "numberOfAnswers": 1,
+    "name": "Host A is sending a packet to Host B for the first time. What destination MAC address will Host A use in the ARP request?",
+    "explanation": "For the initial communication, Host A will send a broadcast ARP (all F's) to determine the correct address to use to reach the destination. ARP sends an Ethernet frame called an ARP request to every host on the shared link-layer legmen. The Ethernet header includes the source host MAC address and a destination address of all Fs representing a broadcast frame. The ARP request contains the sender's MAC and IP address and the target (destination) IP address. The target's MAC address is set to all 0s. ARP Request. Reference: http://www.technicalhowto.com/protocols/arp/arp.html",
+    "choices": [{
+        "answear": "192.168.0.1",
+        "istrue": false
+      },
+      {
+        "answear": "172.16.0.50",
+        "istrue": false
+      },
+      {
+        "answear": "00-17-94-61-18-b0",
+        "istrue": false
+      },
+      {
+        "answear": "00-19-d3-2d-c3-b2",
+        "istrue": false
+      },
+      {
+        "answear": "ff-ff-ff-ff-ff-ff",
+        "istrue": true
+      },
+      {
+        "answear": "255.255.255.255",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "numberOfAnswers": 2,
+    "name": "What are two common TCP applications?",
+    "explanation": "SMTP uses TCP port 25, while FTP uses TCP ports 20 and 21. Reference: http://pentestlab.wordpress.com/2012/03/05/common-tcpip-ports/",
+    "choices": [{
+        "answear": "TFTP",
+        "istrue": false
+      },
+      {
+        "answear": "SMTP",
+        "istrue": true
+      },
+      {
+        "answear": "SNMP",
+        "istrue": false
+      },
+      {
+        "answear": "FTP",
+        "istrue": true
+      },
+      {
+        "answear": "DNS",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "numberOfAnswers": 1,
+    "name": "SwitchA receives the frame with the addressing shown. According to the command output also shown in the exhibit, how will SwitchA handle this frame?",
+    "explanation": "Switches keep the learned MAC addresses in a table, so that when a frame comes in with a destination MAC address that the switch has already learned, it will forward it to that port only. If a frame comes in with a destination MAC that is not already in the MAC address table, then the frame will be flooded to all ports except for the one that it came in on. In this case, Switch A already knows that 00b0.d0da.cb56 resides on port fa0/6, so it will forward the from out that port.",
+    "choices": [{
+        "answear": "It will drop the frame.",
+        "istrue": false
+      },
+      {
+        "answear": "It will forward the frame out port Fa0/6 only.",
+        "istrue": true
+      },
+      {
+        "answear": "It will flood the frame out all ports.",
+        "istrue": false
+      },
+      {
+        "answear": "It will flood the frame out all ports except Fa0/3.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "numberOfAnswers": 1,
+    "name": "SwitchA receives the frame with the addressing shown in the exhibit. According to the command output also shown in the exhibit, how will SwitchA handle this frame?",
+    "explanation": "When frame receives the frame, it checks the source address on MAC table if MAC address found in MAC table it tries to forward if not in MAC table adds the Address on MAC table. After checking the source address, it checks the destination address on MAC table, if MAC address found on MAC table it forwards to proper ports otherwise floods on all ports except the source port.",
+    "choices": [{
+        "answear": "It will drop the frame.",
+        "istrue": false
+      },
+      {
+        "answear": "It will forward the frame out port Fa0/6 only.",
+        "istrue": false
+      },
+      {
+        "answear": "It will forward the frame out port Fa0/3 only.",
+        "istrue": false
+      },
+      {
+        "answear": "It will flood the frame out all ports.",
+        "istrue": false
+      },
+      {
+        "answear": "It will flood the frame out all ports except Fa0/3.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "26",
+    "numberOfAnswers": 1,
+    "name": "The exhibit is showing the topology and the MAC address table. Host A sends a data frame to host D. What will the switch do when it receives the frame from host A?",
+    "explanation": "When switch receives the data frame from the host not having the MAC address already on the MAC table, it will add the MAC address to source port on MAC address table and sends the data frame.",
+    "choices": [{
+        "answear": "The switch will add the source address and port to the MAC address table and forward the frame to host D.",
+        "istrue": true
+      },
+      {
+        "answear": "The switch will discard the frame and send an error message back to host A.",
+        "istrue": false
+      },
+      {
+        "answear": "The switch will flood the frame out of all ports except for port Fa0/3.",
+        "istrue": false
+      },
+      {
+        "answear": "The switch will add the destination address of the frame to the MAC address table and forward the frame to host D.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "numberOfAnswers": 2,
+    "name": "Which two statements describe the operation of the CSMA/CD access method?",
+    "explanation": "Ethernet networking uses Carrier Sense Multiple Access with Collision Detect (CSMA/CD), a protocol that helps devices share the bandwidth evenly without having two devices transmit at the same time on the network medium. CSMA/CD was created to overcome the problem of those collisions that occur when packets are transmitted simultaneously from different nodes. And trust me, good collision management is crucial, because when a node transmits in a CSMA/CD network, all the other nodes on the network receive and examine that transmission. Only bridges and routers can effectively prevent a transmission from propagating throughout the entire network! So, how does the CSMA/CD protocol work? Like this: when a host wants to transmit over the network, it first checks for the presence of a digital signal on the wire. If all is clear (no other host is transmitting), the host will then proceed with its transmission. But it doesn’t stop there. The transmitting host constantly monitors the wire to make sure no other hosts begin transmitting. If the host detects another signal on the wire, it sends out an extended jam signal that causes all nodes on the segment to stop sending data (think, busy signal). The nodes respond to that jam signal by waiting a while before attempting to transmit again. Backoff algorithms determine when the colliding stations can retransmit. If collisions keep occurring after 15 tries, the nodes attempting to transmit will then time out.",
+    "choices": [{
+        "answear": "In a CSMA/CD collision domain, multiple stations can successfully transmit data simultaneously.",
+        "istrue": false
+      },
+      {
+        "answear": "In a CSMA/CD collision domain, stations must wait until the media is not in use before transmitting.",
+        "istrue": true
+      },
+      {
+        "answear": "The use of hubs to enlarge the size of collision domains is one way to improve the operation of the CSMA/CD access method.",
+        "istrue": false
+      },
+      {
+        "answear": "After a collision, the station that detected the collision has first priority to resend the lost data.",
+        "istrue": false
+      },
+      {
+        "answear": "After a collision, all stations run a random backoff algorithm. When the backoff delay period has expired, all stations have equal priority to transmit data.",
+        "istrue": true
+      },
+      {
+        "answear": "After a collision, all stations involved run an identical backoff algorithm and then synchronize with each other prior to transmitting data.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "28",
+    "numberOfAnswers": 3,
+    "name": "A network has been planned as shown. Which three statements accurately describe the areas and devices in the network plan?",
+    "explanation": "Switches use a separate collision domain for each port, so device A must be a switch. Hubs, however, place all ports in the same collision domain so device B is a hub. Switches reside in layer 2 while hubs are layer 1 devices.",
+    "choices": [{
+        "answear": "Network Device A is a switch.",
+        "istrue": true
+      },
+      {
+        "answear": "Network Device B is a switch.",
+        "istrue": false
+      },
+      {
+        "answear": "Network Device A is a hub.",
+        "istrue": false
+      },
+      {
+        "answear": "Network Device B is a hub.",
+        "istrue": true
+      },
+      {
+        "answear": "Area 1 contains a Layer 2 device.",
+        "istrue": true
+      },
+      {
+        "answear": "Area 2 contains a Layer 2 device.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "29",
+    "numberOfAnswers": 1,
+    "name": "On a Cisco switch, which protocol determines if an attached VoIP phone is from Cisco or from another vendor?",
+    "explanation": "The Cisco Unified IP Phone uses CDP to communicate information such as auxiliary VLAN ID, per port power management details, and Quality of Service (QoS) configuration information with the Cisco Catalyst switch. Cisco Discovery Protocol (CDP) is a proprietary protocol designed by Cisco to help administrators collect information about both locally attached and remote devices. By using CDP, you can gather hardware and protocol information about neighbor devices, which is useful info for troubleshooting the network. CDP messages are generated every 60 seconds as multicast messages on each of its active interfaces. The information shared in a CDP packet about a Cisco device includes the following: Name of the device configured with the hostname command IOS software version Hardware capabilities, such as routing, switching, and/or bridging Hardware platform, such as 2600, 2950, or 1900 The layer-3 address(es) of the device The interface the CDP update was generated on Reference: http://computernetworkingnotes.com/cisco-devices-administration-andconfiguration/ cisco-discoveryprotocol.html",
+    "choices": [{
+        "answear": "RTP",
+        "istrue": false
+      },
+      {
+        "answear": "TCP",
+        "istrue": false
+      },
+      {
+        "answear": "CDP",
+        "istrue": true
+      },
+      {
+        "answear": "UDP",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "30",
+    "numberOfAnswers": 1,
+    "name": "What must be configured to establish a successful connection from Host A to switch SW-A through router RT-A?",
+    "explanation": "In order for the switch to reach networks that are not local, such as networks attached to different interfaces of the router, it will need to set its default gateway to be the IP address of the attached router.",
+    "choices": [{
+        "answear": "VLAN 1 on RT-A",
+        "istrue": false
+      },
+      {
+        "answear": "IP routing on SW-A",
+        "istrue": false
+      },
+      {
+        "answear": "default gateway on SW-A",
+        "istrue": true
+      },
+      {
+        "answear": "crossover cable connecting SW-A and RT-A",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "31",
+    "numberOfAnswers": 1,
+    "name": "At which layer of the OSI model does the protocol that provides the information that is displayed by the show cdp neighbors command operate?",
+    "explanation": "CDP is a device discovery protocol that runs over Layer 2 (the data link layer) on all Ciscomanufactured devices (routers, bridges, access servers, and switches) and allows network management applications to discover Cisco devices that are neighbors of already known devices. With CDP, network management applications can learn the device type and the Simple Network Management Protocol (SNMP) agent address of neighboring devices running lower-layer, transparent protocols. CDP allows devices to share basic configuration information without even configuring any protocol specific information and is enabled by default on all interfaces. CDP is a Datalink Protocol occurring at Layer 2 of the OSI model. CDP is not routable and can only go over to directly connected devices. CDP is enabled, by default, on all Cisco devices. CDP updates are generated as multicasts every 60 seconds with a hold-down period of 180 seconds for a missing neighbor. The no cdp run command globally disables CDP, while the no cdp enable command disables CDP on an interface. Use show cdp neighbors to list out your directly connected Cisco neighboring devices. Adding the detail parameter will display the layer-3 addressing configured on the neighbor. Reference: http://computernetworkingnotes.com/cisco-devices-administration-andconfiguration/ cisco-discoveryprotocol.html",
+    "choices": [{
+        "answear": "application",
+        "istrue": false
+      },
+      {
+        "answear": "transport",
+        "istrue": false
+      },
+      {
+        "answear": "network",
+        "istrue": false
+      },
+      {
+        "answear": "physical",
+        "istrue": false
+      },
+      {
+        "answear": "data link",
+        "istrue": true
+      }
+    ]
   }
 
 ]
