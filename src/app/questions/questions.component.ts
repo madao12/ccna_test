@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../question';
-
+import { OnDestroy } from '@angular/core';
 import { QuestionService } from '../question.service';
 
 
@@ -13,26 +13,41 @@ import { QuestionService } from '../question.service';
 
 })
 export class QuestionsComponent implements OnInit {
-  sourceQuestions: Question[];
-  selectedQuestions: Question[];
-
+  sourceQuestions: Question[] = [];
+  selectedQuestions: Question[] = [];
 
 
   constructor(private questionService: QuestionService) {
 
   }
 
+
+
+
+
   ngOnInit() {
-    // this.questionService.getQuestions().then(questions => this.sourceQuestions = questions);
-    this.sourceQuestions = this.questionService.getQuestions();
-    this.selectedQuestions = this.questionService.getSelectedQuestions();
+   // this.sourceQuestions = this.questionService.getQuestions();
+    // this.selectedQuestions = this.questionService.getSelectedQuestions();
+    this.getQuestions();
+
+
+
+
+
+
+
   }
 
+
+
+
   setSelectedQuestions() {
-
-
     this.questionService.setSelectedQuestions(this.selectedQuestions);
   }
 
+  getQuestions():  Question[] {
+    this.questionService.getQuestions().subscribe(questions => this.sourceQuestions = questions);
+    return this.sourceQuestions;
+  }
 
 }

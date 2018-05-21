@@ -1,6 +1,6 @@
 <div class="ui-g">
 
-  <p-pickList [metaKeySelection]="false" [showSourceControls]="false" [showTargetControls]="false" [responsive]="true" sourceFilterPlaceholder="Search by ID" targetFilterPlaceholder="Search by ID" sourceHeader="Available" dragdrop="true" targetHeader="Selected"  [source]="sourceQuestions" [target]="selectedQuestions"  [sourceStyle]="{'height':'600px', 'width' : '100%'}"
+  <p-pickList [source]="sourceQuestions" [target]="selectedQuestions" [metaKeySelection]="false" [showSourceControls]="false" [showTargetControls]="false"  [responsive]="true" sourceFilterPlaceholder="Search by ID" targetFilterPlaceholder="Search by ID" dragdrop="true" sourceHeader="Διαθέσιμες Ερωτήσεις({{sourceQuestions.length}})"  targetHeader="Επιλεγμένες Ερωτήσεις({{selectedQuestions.length}})"   [sourceStyle]="{'height':'600px', 'width' : '100%'}"
     filterBy="id" [targetStyle]="{'height':'600px', 'width' : '100%'}"  >
     <ng-template let-question pTemplate="item">
       <div class="ui-g">
@@ -11,9 +11,8 @@
   </p-pickList>
 </div>
 <div class="ui-g">
-  <div class="ui-g-12 ui-md-12 ui-lg-12">
+  <div class="ui-g-12 ui-md-12 ui-lg-12" *ngIf="selectedQuestions.length>0">
     <button pButton label="Start Test" type="button" style="width: 150px" routerLink="/quiz" (click)="setSelectedQuestions()"></button>
   </div>
 </div>
-
 

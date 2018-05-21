@@ -10,16 +10,17 @@ export const QUESTIONS = [
         choices:
         [
             {
-                answear:'There are no collisions in full-duplex mode.', istrue:true
+                answear: 'There are no collisions in full-duplex mode.', istrue: true
             },
             {
-                answear:'A dedicated switch port is required for each full-duplex node.', istrue:true
+                answear: 'A dedicated switch port is required for each full-duplex node.', istrue: true
             },
             {
-                answear:'Ethernet hub ports are preconfigured for full-duplex mod.', istrue:false
+                answear: 'Ethernet hub ports are preconfigured for full-duplex mod.', istrue: false
             },
             {
-                answear:'In a full-duplex environment, the host network card must check for the availability of the network media before transmitting.', istrue: false
+                // tslint:disable-next-line:max-line-length
+                answear: 'In a full-duplex environment, the host network card must check for the availability of the network media before transmitting.', istrue: false
             },
             {
                 answear: 'The host network card and the switch port must be capable of operating in full-duplex mode.', istrue: true
@@ -30,6 +31,7 @@ export const QUESTIONS = [
         id: '3',
         numberOfAnswers: 1,
         name: 'Which OSI layer header contains the address of a destination host that is on another network?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'Only network address contains this information. To transmit the packets the sender uses network address and datalink address. But the layer 2 address represents just the address of the next hop device on the way to the sender. It is changed on each hop. Network address remains the same. ',
         choices:
         [
@@ -58,6 +60,7 @@ export const QUESTIONS = [
         id: '4',
         numberOfAnswers: 1,
         name: 'Which layer of the TCP/IP stack combines the OSI model physical and data link layers?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'The Internet Protocol Suite, TCP/IP, is a suite of protocols used for communication over the internet. The TCP/ IP model was created after the OSI 7 layer model for two major reasons. First, the foundation of the Internet was built using the TCP/IP suite and through the spread of the World Wide Web and Internet, TCP/IP has been preferred. Second, a project researched by the Department of Defense (DOD) consisted of creating the TCP/IP protocols. The DODs goal was to bring international standards which could not be met by the OSI model. Since the DOD was the largest software consumer and they preferred the TCP/IP suite, most vendors used this model rather than the OSI. Below is a side by side comparison of the TCP/IP and OSI models',
         choices:
         [
@@ -80,6 +83,7 @@ export const QUESTIONS = [
         id: '5',
         numberOfAnswers: 1,
         name: 'Which protocol uses a connection-oriented service to deliver files between end systems?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'TCP is an example of a connection-oriented protocol. It requires a logical connection to be established between the two processes before data is exchanged. The connection must be maintained during the entire time that communication is taking place, then released afterwards. The process is much like a telephone call, where a virtual circuit is established--the caller must know the person`s telephone number and the phone must be answered--before the message can be delivered. TCP/IP is also a connection-oriented transport with orderly release. With orderly release, any data remaining in the buffer is sent before the connection is terminated. The release is accomplished in a three-way handshake between client and server processes. The connection-oriented protocols in the OSI protocol suite, on the other hand, do not support orderly release. Applications perform any handshake necessary for ensuring orderly release. Examples of services that use connection-oriented transport services are telnet, rlogin, and ftp',
         choices:
         [
@@ -106,6 +110,7 @@ export const QUESTIONS = [
         id: '6',
         numberOfAnswers: 1,
         name: 'If the hubs in the graphic were replaced by switches, what would be virtually eliminated?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'Modern wired networks use a network switch to eliminate collisions. By connecting each device directly to a port on the switch, either each port on a switch becomes its own collision domain (in the case of half duplex links) or the possibility of collisions is eliminated entirely in the case of full duplex links.',
         choices:
         [
@@ -132,6 +137,7 @@ export const QUESTIONS = [
         id: '7',
         numberOfAnswers: 1,
         name: 'If host A sends an IP packet to host B, what will the source physical address be in the frame when it reaches host B?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'When packets transfer from one host to another across a routed segment, the source IP address always remains the same source IP address, and the source physical (MAC) address will be the existing router’s interface address. Similarly, the destination IP address always remains the same and the destination physical (MAC) address is the destination router’s interface address.',
         choices:
         [
@@ -160,7 +166,9 @@ export const QUESTIONS = [
     {
         id: '8',
         numberOfAnswers: 1,
+        // tslint:disable-next-line:max-line-length
         name: 'HostX is transferring a file to the FTP server. Point A represents the frame as it goes toward the Toronto router. What will the Layer 2 destination address be at this point?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'For packets destined to a host on another IP network, the destination MAC address will be the LAN interface of the router. Since the FTP server lies on a different network, the host will know to send the frame to its default gateway, which is Toronto.',
         choices:
         [
@@ -186,6 +194,7 @@ export const QUESTIONS = [
         id: '9',
         numberOfAnswers: 1,
         name: 'Which network device functions only at Layer 1 of the OSI model?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'Most hubs are amplifying the electrical signal; therefore, they are really repeaters with several ports. Hubs and repeaters are Layer 1 (physical layer) devices.',
         choices:
         [
@@ -210,7 +219,9 @@ export const QUESTIONS = [
     {
         id: '10',
         numberOfAnswers: 1,
+        // tslint:disable-next-line:max-line-length
         name: 'The host in Kiev sends a request for an HTML document to the server in Minsk. What will be the source IP address of the packet as it leaves the Kiev router?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'Although the source and destination MAC address will change as a packet traverses a network, the source and destination IP address will not unless network address translation (NAT) is being done, which is not the case here.',
         choices:
         [
@@ -238,7 +249,9 @@ export const QUESTIONS = [
     {
         id: '11',
         numberOfAnswers: 3,
+        // tslint:disable-next-line:max-line-length
         name: 'As packets travel from Mary to Robert, which three devices will use the destination MAC address of the packet to determine a forwarding path?',
+        // tslint:disable-next-line:max-line-length
         explanation: 'Switches use the destination MAC address information for forwarding traffic, while routers use the destination IP address information. Local Area Networks employ Layer 2 Switches and Bridges to forward and filter network traffic. Switches and Bridges operate at the Data Link Layer of the Open System Interconnect Model (OSI). Since Switches and Bridges operate at the Layer 2 they operate more intelligently than hubs, which work at Layer 1 (Physical Layer) of the OSI. Because the switches and bridges are able to listen to the traffic on the wire to examine the source and destination MAC address. Being able to listen to the traffic also allows the switches and bridges to compile a MAC address table to better filter and forward network traffic.To accomplish the above functions switches and bridges carry out the following tasks: MAC address learning by a switch or a bridge is accomplished by the same method. The switch or bridge listens to each device connected to each of its ports and scan the incoming frame for the source MAC address. This creates a MAC address to port map that is cataloged in the switches/bridge MAC database. Another name for the MAC address table is content addressable memory or CAM table. When a switch or bridge is listening to the network traffic, it receives each frame and compares it to the MAC address table. By checking the MAC table the switch/ bridge are able o determine which port the frame came in on. If the frame is on the MAC table the frame is filtered or transmitted on only that port. If the switch determines that the frame is not on the MAC table, the frame is forwarded out to all ports except the incoming port. ',
         choices:
         [

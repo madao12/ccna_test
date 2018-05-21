@@ -7,6 +7,7 @@ import {NgForm} from '@angular/forms';
 import { QuestionService } from '../question.service';
 
 
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -15,7 +16,6 @@ import { QuestionService } from '../question.service';
 export class QuizComponent implements OnInit {
   selectedQuestions: Question[];
   question: Question;
-  choices: any[];
   i = 0;
   j = 1;
   correctOption = 0;
@@ -39,7 +39,6 @@ export class QuizComponent implements OnInit {
   ngOnInit() {
     this.selectedQuestions = this.questionService.getSelectedQuestions();
     this.question = this.selectedQuestions[0];
-    this.choices = this.question.choices;
     this.numberOfQuestions = this.selectedQuestions.length;
     this.getPercentage(this.j, this.numberOfQuestions);
 
@@ -55,7 +54,6 @@ export class QuizComponent implements OnInit {
     this.j++;
     this.getPercentage(this.j, this.numberOfQuestions);
     this.question = this.selectedQuestions[this.i];
-    this.choices = this.question.choices;
 
     this.correctOption = 0;
     this.wrongOption = 0;
@@ -81,7 +79,7 @@ export class QuizComponent implements OnInit {
       if (isTrue === true) {
         this.correctOption--;
       } else {
-      this.wrongOption--;
+        this.wrongOption--;
       }
     }
   }
