@@ -3,7 +3,7 @@
   <p-accordion styleClass="d">
     <p-accordionTab *ngFor="let question of selectedQuestions">
       <p-header >{{question.id}}) - {{question.name}}<i style="float:right" class="fa" [ngClass]="{'fa-check-circle choiceTrue' : question.isCorrect == true, 'fa-times choiceFalse' : question.isCorrect == false}"></i></p-header>
-      <img class="img-responsive" style="width: 500px " src="assets/images/{{question.id}}.png" alt="" />
+      <img class="img-responsive" style="width: 500px " src="assets/images/icnd1/{{question.id}}.png" alt="" />
       <ul style="list-style-type:none">
         <li *ngFor="let choice of question.choices;index as i" [ngClass]="{'choiceTrue' : choice.istrue == true, 'choiceFalse' : choice.istrue == false}">
           {{numToLetter(i)}}) {{choice.answear}}

@@ -6,7 +6,9 @@
 
 body {
   background: #f1f2f3;
-  padding: 1em;
+
+  padding: 0;
+  margin: 0;
   font-family: 'Fira Sans', 'Arial';
   color: #414040;
 }
@@ -40,3 +42,27 @@ a {
 .ui-fieldset-legend{
   font-size: 0.7em;
 }
+
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  background-image: url("/assets/images/logo.png");
+  background-repeat: no-repeat;
+  background-size: 100px;;
+  padding: 10px 10px;
+  background-color: rgb(28, 147, 226);
+}
+.header img{
+  float: left;
+  height: 100px;
+}
+.header h1{
+  text-align: center;
+}
+
+.content{
+  padding: 1em;
+  margin: 1em;
+}
+

@@ -1,18 +1,26 @@
-<div class="ui-g">
 
-  <p-pickList [source]="sourceQuestions" [target]="selectedQuestions" [metaKeySelection]="false" [showSourceControls]="false" [showTargetControls]="false"  [responsive]="true" sourceFilterPlaceholder="Search by ID" targetFilterPlaceholder="Search by ID" dragdrop="true" sourceHeader="Διαθέσιμες Ερωτήσεις({{sourceQuestions.length}})"  targetHeader="Επιλεγμένες Ερωτήσεις({{selectedQuestions.length}})"   [sourceStyle]="{'height':'600px', 'width' : '100%'}"
-    filterBy="id" [targetStyle]="{'height':'600px', 'width' : '100%'}"  >
-    <ng-template let-question pTemplate="item">
-      <div class="ui-g">
-        <div style="font-size:14px;float:right;margin:15px 5px 0 0">
-          <b>{{question.id}})</b> - {{question.name}}</div>
-      </div>
-    </ng-template>
-  </p-pickList>
-</div>
-<div class="ui-g">
-  <div class="ui-g-12 ui-md-12 ui-lg-12" *ngIf="selectedQuestions.length>0">
-    <button pButton label="Start Test" type="button" style="width: 150px" routerLink="/quiz" (click)="setSelectedQuestions()"></button>
+  <div class="ui-g" *ngIf="sourceQuestions">
+    <p-pickList [source]="sourceQuestions" [target]="selectedQuestions" [metaKeySelection]="false"
+      [showSourceControls]="false" [showTargetControls]="false" [responsive]="true" sourceFilterPlaceholder="Search by ID"
+      targetFilterPlaceholder="Search by ID" dragdrop="true" sourceHeader="Διαθέσιμες Ερωτήσεις({{sourceQuestions.length}})"
+      targetHeader="Επιλεγμένες Ερωτήσεις({{selectedQuestions.length}})" [sourceStyle]="{'height':'600px', 'width' : '100%'}"
+      filterBy="id" [targetStyle]="{'height':'600px', 'width' : '100%'}" styleClass="p">
+      <ng-template let-question pTemplate="item">
+        <div class="ui-g">
+          <div style="font-size:14px;float:right;margin:15px 5px 0 0">
+            <b>{{question.id}})</b> - {{question.name}}</div>
+        </div>
+      </ng-template>
+    </p-pickList>
   </div>
-</div>
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12" *ngIf="selectedQuestions.length>0">
+
+    </div>
+  </div>
+  <br>
+  <button pButton label="OK" type="button" style="width: 150px" (click)="setSelected()"  routerLink="/control_panel"></button>
+  <button pButton label="Cancel" type="button" style="width: 150px" routerLink="/control_panel"></button>
+
+
 

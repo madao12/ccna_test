@@ -10,6 +10,10 @@ import { FilterPipe } from './filter.pipe';
 import { QuestionService } from './question.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
+import { environment } from './../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // PrimeNG Modules
 import {CheckboxModule} from 'primeng/checkbox';
@@ -18,6 +22,8 @@ import {ButtonModule} from 'primeng/button';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {AccordionModule} from 'primeng/accordion';
 import {FieldsetModule} from 'primeng/fieldset';
+import {DropdownModule} from 'primeng/dropdown';
+import { ControlPanelComponent } from './control-panel/control-panel.component';
 
 
 
@@ -30,10 +36,12 @@ import {FieldsetModule} from 'primeng/fieldset';
     QuestionsComponent,
     QuizComponent,
     FilterPipe,
-    DetailsComponent
+    DetailsComponent,
+    ControlPanelComponent
     ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
@@ -44,7 +52,11 @@ import {FieldsetModule} from 'primeng/fieldset';
     ButtonModule,
     ProgressBarModule,
     AccordionModule,
-    FieldsetModule
+    DropdownModule,
+    FieldsetModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
+
 
 
 

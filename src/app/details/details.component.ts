@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
-import { QUESTIONS } from '../question-list';
+
 import { Question } from '../question';
 
 import {NgForm} from '@angular/forms';
@@ -12,13 +12,13 @@ import { QuestionService } from '../question.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  selectedQuestions: Question[];
+  @Input() selectedQuestions;
 
 
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
-    this.selectedQuestions = this.questionService.getSelectedQuestions();
+
   }
 
   numToLetter(k: number) {

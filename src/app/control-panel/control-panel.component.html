@@ -1,0 +1,10 @@
+<p-dropdown [options]="tests" [(ngModel)]="selectedTest"  (onChange)="setQuestionsUrl()" placeholder="Select a Test" optionLabel="name"></p-dropdown>
+<button *ngIf="selectedTest" pButton type="button" style="margin:0.2em; height: 23px;" routerLink="/questions"><i class="fa fa-edit"></i></button>
+
+<h2>Επιλεγμένες Ερωτήσεις</h2>
+
+<p style="width: 50%" *ngFor="let selected of selectedQuestions">
+  {{selected.id}}) {{selected.name}}
+</p>
+<button pButton label="Create Test" type="button" style="width: 150px" (click)="addSelected()"  routerLink="/control_panel"></button>
+
