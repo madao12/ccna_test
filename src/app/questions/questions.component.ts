@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../question';
-import { OnDestroy } from '@angular/core';
+
 import { QuestionService } from '../question.service';
 
 interface Test {
@@ -21,19 +21,22 @@ interface Test {
 export class QuestionsComponent implements OnInit {
   sourceQuestions: Question[] = [];
   selectedQuestions: Question[] = [];
+  tests;
+  selectedTest: Test;
 
-
-  constructor(private questionService: QuestionService) {  }
+  constructor(private questionService: QuestionService) {
+    this.tests = [
+      {name: 'ICND 1', url: 'assets/data/list-questions.json'},
+      {name: 'ICND 2', url: 'assets/data/list-questions2.json'}
+    ];
+    }
 
   ngOnInit() {
     this.questionService.addDefaultSelected(this.selectedQuestions);
-    this.questionService.getQuestions().subscribe(questions => this.sourceQuestions = questions);
-
   }
 
-  setSelected() {
-    this.questionService.setSelectedQuestions(this.selectedQuestions);
-
+  addSelected() {
+    this.questionService.addSelectedQuestions(this.selectedQuestions);
   }
 
   getQuestions():  Question[] {
@@ -41,6 +44,10 @@ export class QuestionsComponent implements OnInit {
     return this.sourceQuestions;
   }
 
+  setQuestionsUrl(url) {
+    this.questionService.setQuestionsUrl(url);
+    this.getQuestions();
+  }
 
 
 }

@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:600');
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=greek-ext');
 
 
 body {
@@ -9,9 +10,10 @@ body {
 
   padding: 0;
   margin: 0;
-  font-family: 'Fira Sans', 'Arial';
-  color: #414040;
+  font-family: 'Roboto', sans-serif;
+  color: #3a3a3a;
 }
+
 
 a {
   font-size: 2em;
@@ -47,9 +49,10 @@ a {
 .header {
   overflow: hidden;
   background-color: #f1f1f1;
-  background-image: url("/assets/images/logo.png");
+  background-image: url("/assets/images/logo.png"), url("/assets/images/logo2.png" );
   background-repeat: no-repeat;
-  background-size: 100px;;
+  background-position: left top, right top;
+  background-size: 150px, 150px;
   padding: 10px 10px;
   background-color: rgb(28, 147, 226);
 }
@@ -62,7 +65,7 @@ a {
 }
 
 .content{
-  padding: 1em;
-  margin: 1em;
+  padding: 0.2em;
+  margin: 0.2em;
 }
 

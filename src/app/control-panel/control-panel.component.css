@@ -1,0 +1,21 @@
+.selected{
+  width:45%;
+  float:left;
+  overflow:hidden;
+  text-align: center;
+}
+.results{
+  width:45%;
+  float:right;
+  overflow:hidden;
+  text-align: center;
+}
+
+h1,h2,h3{
+  display: inline;
+}
+button{
+  margin:10px;
+}
+
+

@@ -1,10 +1,7 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
-
-
-import { Question } from '../question';
-
-import {NgForm} from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { ResultService } from '../result.service';
 import { QuestionService } from '../question.service';
+
 
 @Component({
   selector: 'app-details',
@@ -13,9 +10,12 @@ import { QuestionService } from '../question.service';
 })
 export class DetailsComponent implements OnInit {
   @Input() selectedQuestions;
+  @Input() studentAem;
+  @Input() correct;
+  @Input() numberOfQuestions;
 
 
-  constructor(private questionService: QuestionService) { }
+  constructor(private resultService: ResultService, private questionService: QuestionService) { }
 
   ngOnInit() {
 

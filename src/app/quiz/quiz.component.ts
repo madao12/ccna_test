@@ -1,11 +1,15 @@
-import { Component, OnInit, ViewChild, Input} from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
+import { ResultService } from '../result.service';
 import { Question } from '../question';
 
-import {NgForm} from '@angular/forms';
-import { QuestionService } from '../question.service';
-import { AngularFireDatabase } from 'angularfire2/database';
 
+import { QuestionService } from '../question.service';
+
+interface Result {
+  aem: String;
+  correct: number;
+  numberOfQuestions: number;
+}
 
 
 @Component({
@@ -13,9 +17,13 @@ import { AngularFireDatabase } from 'angularfire2/database';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.scss']
 })
+
 export class QuizComponent implements OnInit {
+  results: Result;
+  studentAem: String;
   selectedQuestions: Question[] = [];
   start = false;
+  setAem = false;
   question: Question;
   i = 0;
   j = 1;
@@ -26,12 +34,12 @@ export class QuizComponent implements OnInit {
   progress = 0;
   timeLeft = 10;
   interval;
+  counter = 0;
   numToLetter(k: number) {
     return String.fromCharCode(65 + k);
   }
 
-  constructor(private questionService: QuestionService) {
-
+  constructor(private resultService: ResultService, private questionService: QuestionService) {
   }
 
   ngOnInit() {
@@ -45,6 +53,7 @@ export class QuizComponent implements OnInit {
       this.question = this.selectedQuestions[0];
       this.numberOfQuestions = this.selectedQuestions.length;
       this.getPercentage(this.j, this.numberOfQuestions);
+      console.log(this.selectedQuestions);
     });
   }
 
@@ -77,14 +86,23 @@ export class QuizComponent implements OnInit {
     this.question = this.selectedQuestions[this.i];
     this.correctOption = 0;
     this.wrongOption = 0;
+    if (this.i === this.numberOfQuestions) {
+      this.addResults();
+    }
+  }
+
+  addResults() {
+    this.results = {
+      aem: this.studentAem,
+      correct: this.correct,
+      numberOfQuestions: this.numberOfQuestions
+    };
+    this.resultService.addResults(this.results);
   }
 
   getPercentage(j: number, numberOfQuestions: number) {
     this.progress = (j / numberOfQuestions) * 100;
   }
-
-
-
 
   startTimer() {
       this.interval = setInterval(() => {
@@ -95,6 +113,8 @@ export class QuizComponent implements OnInit {
         }
       }, 1000);
     }
+
+
 
 
 

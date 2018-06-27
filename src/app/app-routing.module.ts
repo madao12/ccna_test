@@ -11,7 +11,7 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
 const routes: Routes = [
   {path: '', component: QuizComponent },
   {path: 'control_panel', component: ControlPanelComponent, data: {} },
-  {path: 'questions', component: QuestionsComponent, data: {} },
+  {path: 'question', component: QuestionsComponent, data: {} },
   {path: 'details', component: DetailsComponent, data: {} }
 ];
 

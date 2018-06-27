@@ -1,10 +1,62 @@
-<p-dropdown [options]="tests" [(ngModel)]="selectedTest"  (onChange)="setQuestionsUrl()" placeholder="Select a Test" optionLabel="name"></p-dropdown>
-<button *ngIf="selectedTest" pButton type="button" style="margin:0.2em; height: 23px;" routerLink="/questions"><i class="fa fa-edit"></i></button>
+<div class="selected">
 
-<h2>Επιλεγμένες Ερωτήσεις</h2>
+  <p-confirmDialog></p-confirmDialog>
 
-<p style="width: 50%" *ngFor="let selected of selectedQuestions">
-  {{selected.id}}) {{selected.name}}
-</p>
-<button pButton label="Create Test" type="button" style="width: 150px" (click)="addSelected()"  routerLink="/control_panel"></button>
+  <h2>Επιλεγμένες Ερωτήσεις({{selectedQuestions.length}})</h2>
+  <button pButton  type="button" (click)="getSelectedQuestions()" icon="fa fa-refresh"></button>
+  <button type="button" (click)="confirmEditTest()" pButton label="Edit" class="ui-button-success"></button>
+
+  <p-table [value]="selectedQuestions">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:50px">ID</th>
+        <th>Question</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-selected>
+      <tr>
+        <td>{{selected.id}}</td>
+        <td>{{selected.name}}</td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+</div>
+
+
+<div class="results">
+  <h2>Αποτελέσματα({{results.length}})</h2>
+  <button pButton  type="button" (click)="getResults()" icon="fa fa-refresh"></button>
+<div *ngIf="results.length>0">
+  <p-table [value]="results">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>AEM</th>
+        <th>Correct</th>
+        <th>Total Questions</th>
+        <th>SCORE</th>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-result>
+      <tr>
+        <td>{{result.studentResults.aem}}</td>
+        <td>{{result.studentResults.correct}}</td>
+        <td>{{result.studentResults.numberOfQuestions}}</td>
+        <td>{{(result.studentResults.correct / result.studentResults.numberOfQuestions) | percent}}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <tr>
+            <td colspan="3">Average</td>
+            <td>{{scoreAvg | percent}}</td>
+        </tr>
+    </ng-template>
+
+
+  </p-table>
+  <button  class="ui-button-danger" style="float: right;" type="button" (click)="confirmDeleteResults() " pButton label="Delete"></button>
+</div>
+</div>
+
 

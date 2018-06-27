@@ -6,13 +6,10 @@ import { AppComponent } from './app.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { FilterPipe } from './filter.pipe';
 import { QuestionService } from './question.service';
+import { ResultService } from './result.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
-import { environment } from './../environments/environment';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // PrimeNG Modules
@@ -24,7 +21,9 @@ import {AccordionModule} from 'primeng/accordion';
 import {FieldsetModule} from 'primeng/fieldset';
 import {DropdownModule} from 'primeng/dropdown';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
-
+import {TableModule} from 'primeng/table';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {InputTextModule} from 'primeng/inputtext';
 
 
 
@@ -35,7 +34,6 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
     AppComponent,
     QuestionsComponent,
     QuizComponent,
-    FilterPipe,
     DetailsComponent,
     ControlPanelComponent
     ],
@@ -54,14 +52,15 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
     AccordionModule,
     DropdownModule,
     FieldsetModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    TableModule,
+    ConfirmDialogModule,
+    InputTextModule
 
 
 
 
   ],
-  providers: [QuestionService],
+  providers: [QuestionService, ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
