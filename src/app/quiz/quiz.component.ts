@@ -1,16 +1,18 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener} from '@angular/core';
 import { ResultService } from '../result.service';
 import { Question } from '../question';
-
-
+import { Router } from '@angular/router';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionService } from '../question.service';
 
 interface Result {
   aem: String;
   correct: number;
   numberOfQuestions: number;
-}
+  score: number;
+  test;
 
+}
 
 @Component({
   selector: 'app-quiz',
@@ -18,42 +20,70 @@ interface Result {
   styleUrls: ['./quiz.component.scss']
 })
 
-export class QuizComponent implements OnInit {
+export class QuizComponent implements OnInit, OnDestroy {
+
   results: Result;
-  studentAem: String;
+  studentAem: String = '';
   selectedQuestions: Question[] = [];
-  start = false;
-  setAem = false;
   question: Question;
-  i = 0;
-  j = 1;
+  index = 0;
   correctOption = 0;
   wrongOption = 0;
   numberOfQuestions;
   correct = 0;
   progress = 0;
-  timeLeft = 10;
+  testTime: number;
+  timeLeft: number;
   interval;
   counter = 0;
+
   numToLetter(k: number) {
     return String.fromCharCode(65 + k);
   }
 
-  constructor(private resultService: ResultService, private questionService: QuestionService) {
+  constructor(
+    private resultService: ResultService,
+    private questionService: QuestionService,
+    private router: Router,
+    config: NgbCarouselConfig,
+  ) {
+    config.interval = 100000;
+    config.wrap = false;
+    config.keyboard = false;
+    config.pauseOnHover = false;
   }
 
+  @HostListener('window:beforeunload', ['$event'])
+  doSomething($event) {
+    $event.returnValue = 'Your data will be lost!';
+  }
+
+
   ngOnInit() {
-    this.getSelectedQuestions();
+    setTimeout(() => {
+      this.getSelectedQuestions();
+      this.getAem();
+      console.log('student aem:', this.studentAem);
+      console.log('time', this.timeLeft);
+    }, 1);
+
+  }
+
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 
   getSelectedQuestions() {
     this.questionService.getSelectedQuestions()
-    .subscribe(selected => {
-      this.selectedQuestions = selected.selected;
-      this.question = this.selectedQuestions[0];
+    .subscribe(res => {
+      this.selectedQuestions = res.selected;
+      this.testTime = res.testTime;
+      this.question = this.selectedQuestions[this.index];
       this.numberOfQuestions = this.selectedQuestions.length;
-      this.getPercentage(this.j, this.numberOfQuestions);
-      console.log(this.selectedQuestions);
+      this.getPercentage(1 + this.index, this.numberOfQuestions);
+      this.startTimer();
     });
   }
 
@@ -73,6 +103,15 @@ export class QuizComponent implements OnInit {
     }
   }
 
+  setUserChoice(choice, element: HTMLInputElement) {
+    if (element.checked) {
+      choice.isSelected = !choice.isSelected;
+    } else {
+      choice.isSelected = !choice.isSelected;
+    }
+    console.log(choice.isSelected);
+  }
+
   getNextQuestion() {
     if (this.correctOption === this.question.numberOfAnswers && this.wrongOption === 0) {
       this.correct++;
@@ -80,14 +119,13 @@ export class QuizComponent implements OnInit {
     } else {
       this.question.isCorrect = false;
     }
-    this.i++;
-    this.j++;
-    this.getPercentage(this.j, this.numberOfQuestions);
-    this.question = this.selectedQuestions[this.i];
+    this.index++;
+    this.getPercentage(1 + this.index, this.numberOfQuestions);
+    this.question = this.selectedQuestions[this.index];
     this.correctOption = 0;
     this.wrongOption = 0;
-    if (this.i === this.numberOfQuestions) {
-      this.addResults();
+    if (this.index === this.numberOfQuestions) {
+      this.endTest();
     }
   }
 
@@ -95,24 +133,48 @@ export class QuizComponent implements OnInit {
     this.results = {
       aem: this.studentAem,
       correct: this.correct,
-      numberOfQuestions: this.numberOfQuestions
+      numberOfQuestions: this.numberOfQuestions,
+      score: (this.correct / this.numberOfQuestions),
+      test: this.selectedQuestions
     };
+    this.resultService.setResults(this.selectedQuestions, this.correct);
     this.resultService.addResults(this.results);
   }
 
-  getPercentage(j: number, numberOfQuestions: number) {
-    this.progress = (j / numberOfQuestions) * 100;
+  getPercentage(currentIndex: number, numberOfQuestions: number) {
+    this.progress = (currentIndex / numberOfQuestions) * 100;
   }
 
   startTimer() {
+      this.timeLeft = this.testTime * 60;
       this.interval = setInterval(() => {
         if (this.timeLeft > 0) {
           this.timeLeft--;
-        } else {
-          this.timeLeft = 0;
+        } else if (this.timeLeft === 0) {
+          this.timeLeft = -1;
+          this.endTest();
         }
       }, 1000);
     }
+
+  getAem() {
+    this.studentAem = this.questionService.getAem();
+    if (!this.studentAem) {
+      this.aemNotSet();
+    }
+  }
+
+
+  endTest() {
+    this.addResults();
+    this.router.navigate(['/details']);
+  }
+
+  aemNotSet() {
+    this.router.navigate(['/']);
+  }
+
+
 
 
 

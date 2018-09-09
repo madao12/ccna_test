@@ -1,23 +1,75 @@
-<div class="content-section">
-  <p-accordion styleClass="d">
-    <p-accordionTab *ngFor="let question of selectedQuestions;index as i">
-      <p-header >{{i+1}}) - {{question.name}}<i style="float:right" class="fa" [ngClass]="{'fa-check-circle choiceTrue' : question.isCorrect == true, 'fa-times choiceFalse' : question.isCorrect == false}"></i></p-header>
-      <img class="img-responsive" style="width: 500px " src="assets/images/icnd1/{{question.id}}.png" alt="" />
-      <ul style="list-style-type:none">
-        <li *ngFor="let choice of question.choices;index as i" [ngClass]="{'choiceTrue' : choice.istrue == true, 'choiceFalse' : choice.istrue == false}">
-          {{numToLetter(i)}}) {{choice.answear}}
-        </li>
-      </ul>
+<div class="container">
+
+  <div class="row" *ngIf="testResults">
+    <div class="col-md-12 text-center">
+      <h3>Απάντησες σωστά σε {{correct}} από τις {{testResults.length}} ερωτήσεις!</h3>
+    </div>
+  </div>
+
+  <div class="row div-md bg-l-gray shadow-lg p-3 mb-5  rounded">
+    <div class="col-md-12">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let question of testResults;index as i">
+            <th scope="row">
+              <i class="fa lg-icon" [ngClass]="{'choiceTrue fa-check-circle' : question.isCorrect == true, 'choiceFalse fa-times ' : question.isCorrect == false}">
+              </i>
+            </th>
+            <td>
+              <label class="hover-list font-weight-normal" (click)="openQuestionDetails(content)">{{i+1}}) - {{question.name}}</label>
+
+            </td>
+            <ng-template #content let-c="close" let-d="dismiss">
+              <div class="modal-header bg-l-gray">
+                <label class="json-format">
+                    <h5 class="modal-title"><b>{{i+1}})</b> - {{question.name}}</h5>
+                </label>
+
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body bg-l-gray">
+
+                  <ngb-tabset *ngIf="question.images.length > 0">
+                  <ngb-tab *ngFor="let image of question.images;index as i" title="Image {{1+i}}">
+                    <ng-template ngbTabContent>
+                      <img [src]="image.source" alt="Image">
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
 
 
-      <p-fieldset styleClass="e" legend="Explanation" [toggleable]="true" collapsed="true">
-        {{question.explanation}}
-        <img class="img-responsive" style="width: 60% " src="assets/images/{{question.id}}e.png" alt=""/>
-      </p-fieldset>
 
 
+                <h4>Choices</h4>
+                <hr>
+                <p *ngFor="let choice of question.choices;index as i" [ngClass] = "{'correct-choice' : choice.istrue == true,'wrong-choice' : choice.isSelected == true && choice.istrue == false }" class="font-weight-normal json-format" >
 
+                  <input type="checkbox" class="sm-margin" disabled [checked] = "choice.isSelected"/>
+                  {{numToLetter(i)}}) {{choice.answear}}
+                </p>
 
-    </p-accordionTab>
-  </p-accordion>
+                <h4>Description</h4>
+                <ngb-tabset *ngIf="question.imagesEx">
+                    <ngb-tab *ngFor="let image of question.imagesEx;index as i" title="Image {{1+i}}">
+                      <ng-template ngbTabContent>
+                        <img [src]="image.source" alt="Image">
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                <p class="font-weight-normal json-format">
+                  {{question.explanation}}
+                </p>
+
+              </div>
+              <div class="modal-footer bg-l-gray">
+                <button type="button" class="btn bg-secondary" (click)="c('Close click')">Close</button>
+              </div>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

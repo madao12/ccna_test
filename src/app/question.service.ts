@@ -13,8 +13,10 @@ export interface Config {
 export class QuestionService {
   questions: Question[];
   selected: Question[];
-  selectedQuestions: Question[];
+  selectedQuestions;
   questionsUrl;
+  questionsType;
+  studentAem;
   config: Config = {
     apiUrl: 'http://localhost:4000'
   };
@@ -37,6 +39,12 @@ export class QuestionService {
   setQuestionsUrl(url: string) {
     this.questionsUrl = url;
   }
+  setQuestionsType(name: string) {
+    this.questionsType = name;
+  }
+  getQuestionType() {
+    return this.questionsType;
+  }
 
   addDefaultSelected(selectedQuestions: Question[]) {
     const uri = this.config.apiUrl + '/questions/add';
@@ -48,9 +56,11 @@ export class QuestionService {
         .subscribe(res => console.log('Done'));
   }
 
-  addSelectedQuestions(selectedQuestions: Question[]) {
+  addSelectedQuestions(testTime, testType, selectedQuestions: Question[]) {
     const uri = this.config.apiUrl + '/questions/update';
     const obj = {
+      testTime: testTime,
+      testType: testType,
       selected: selectedQuestions
     };
     this.http.put(uri, obj)
@@ -59,7 +69,9 @@ export class QuestionService {
 
   getSelectedQuestions(): Observable<any> {
     const uri =  this.config.apiUrl + '/questions/';
+    console.log(this.config.apiUrl);
     return this.http.get(uri);
+
   }
 
   showConfig() {
@@ -67,6 +79,13 @@ export class QuestionService {
       .subscribe((data: Config) => this.config = {
           apiUrl: data['apiUrl']
       });
+  }
+
+  setAem(studentAem) {
+    this.studentAem  = studentAem;
+  }
+  getAem() {
+    return this.studentAem;
   }
 
 }

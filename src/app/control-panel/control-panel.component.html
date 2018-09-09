@@ -1,62 +1,239 @@
-<div class="selected">
+<div class="container-fluid">
 
-  <p-confirmDialog></p-confirmDialog>
 
-  <h2>Επιλεγμένες Ερωτήσεις({{selectedQuestions.length}})</h2>
-  <button pButton  type="button" (click)="getSelectedQuestions()" icon="fa fa-refresh"></button>
-  <button type="button" (click)="confirmEditTest()" pButton label="Edit" class="ui-button-success"></button>
 
-  <p-table [value]="selectedQuestions">
-    <ng-template pTemplate="header">
-      <tr>
-        <th style="width:50px">ID</th>
-        <th>Question</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-selected>
-      <tr>
-        <td>{{selected.id}}</td>
-        <td>{{selected.name}}</td>
-      </tr>
-    </ng-template>
 
-  </p-table>
+  <div class="row mt-2">
+    <div class="col-md-5">
+      <div class="table-title ">
+        <h3>Selected Questions({{selectedQuestions.length}})</h3>
+        <button type="button" class="btn btn-success sm-margin" (click)="getSelectedQuestions()">
+          <i class="fa fa-refresh"></i>
+        </button>
+        <button class="btn btn-primary sm-margin" (click)="openSm(editModal)">Edit</button>
+      </div>
+
+      <div class="bg-l-gray shadow-lg p-3 mb-1  rounded">
+
+        <div class="div-md">
+          <table class="table">
+            <thead class="">
+              <tr>
+                <th scope="col">-</th>
+                <th scope="col">Question</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="!(selectedQuestions.length>0)">
+                    <td class="align-middle">
+                      <h2>Empty</h2>
+                    </td>
+                  </tr>
+              <tr *ngFor="let question of selectedQuestions;index as i">
+                <th class="align-middle" scope="row">{{1+i}}</th>
+                <td class="align-middle">
+                  <label class="hover-list font-weight-normal mb-0" (click)="openQuestionDetails(content)"> {{question.name}} (Choose:{{question.numberOfAnswers}})</label>
+                </td>
+
+                <!-- Question Modal -->
+                <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header bg-l-gray">
+                    <label class="json-format">
+                        <h5 class="modal-title"><b>{{1+i}})</b> - {{question.name}}</h5>
+                    </label>
+
+
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body bg-l-gray">
+
+                    <ngb-tabset *ngIf="question.images">
+                      <ngb-tab *ngFor="let image of question.images;index as i" title="Image {{1+i}}">
+                        <ng-template ngbTabContent>
+                          <img [src]="image.source" alt="Image">
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+
+                    <h4>Choices</h4>
+                    <hr>
+                    <p *ngFor="let choice of question.choices;index as i" [ngClass]="{'correct-choice' : choice.istrue == true}" class="font-weight-normal json-format">
+
+
+                      {{numToLetter(i)}}) {{choice.answear}}
+                    </p>
+
+                    <h4>Description</h4>
+                    <ngb-tabset *ngIf="question.imagesEx">
+                      <ngb-tab *ngFor="let image of question.imagesEx;index as i" title="Image {{1+i}}">
+                        <ng-template ngbTabContent>
+                          <img [src]="image.source" alt="Image">
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                    <p class="font-weight-normal json-format">
+                      {{question.explanation}}
+                    </p>
+
+                  </div>
+                  <div class="modal-footer bg-l-gray">
+                    <button type="button" class="btn " (click)="c('Close click')">Close</button>
+                  </div>
+                </ng-template>
+
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <table *ngIf="testTime" class="table bg-l-gray">
+          <tbody>
+            <tr>
+              <td>
+                <h5>Time: {{testTime}} min</h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="col-md-2 text-center">
+      <h1>{{timeUp*1000 | date:'H:mm:ss' }}</h1>
+      <br>
+      <button type="button" class="btn btn-primary sm-margin" (click)="resetTimer()">Reset</button>
+    </div>
+
+
+
+    <div class="col-md-5">
+      <div class="table-title">
+        <h3>Results({{results.length}})</h3>
+        <button type="button" class="btn btn-success sm-margin" (click)="getResults()">
+          <i class="fa fa-refresh"></i>
+        </button>
+
+      </div>
+      <div class="bg-l-gray shadow-lg p-3 mb-1  rounded">
+        <div class="div-md">
+          <table class="table">
+            <thead>
+
+              <tr>
+                <th scope="col" (click)="setOrder('studentResults.aem')">
+                  <label class="hover-list noselect">AEM</label>
+                </th>
+                <th scope="col">
+                  <label class="noselect">Correct</label>
+                </th>
+                <th scope="col">
+                  <label class="noselect">Questions</label>
+                </th>
+                <th scope="col" (click)="setOrder('studentResults.score')">
+                  <label class="hover-list noselect">SCORE</label>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="!(results.length>0)">
+                <td class="align-middle">
+                  <h2>Empty</h2>
+                </td>
+              </tr>
+              <tr *ngFor="let result of results | orderBy: order:reverse">
+                <th scope="row" (click)="openStudentResult(content)">
+                  <label class="hover-list">{{result.studentResults.aem}}</label>
+                </th>
+                <td>{{result.studentResults.correct}}</td>
+                <td>{{result.studentResults.numberOfQuestions}}</td>
+                <td>{{(result.studentResults.score) | percent}}</td>
+                <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header">
+                    <h4 class="modal-title">
+                      <b>Student:</b> {{result.studentResults.aem}} -
+                      <b>Score:</b> {{(result.studentResults.score) | percent}} ({{result.studentResults.correct}}/{{result.studentResults.numberOfQuestions}})
+                    </h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table">
+                      <tbody>
+                        <tr *ngFor="let question of result.studentResults.test;index as i">
+                          <th scope="row">
+                            <i class="fa lg-icon" [ngClass]="{'choiceTrue fa-check-circle' : question.isCorrect == true, 'choiceFalse fa-times ' : question.isCorrect == false}">
+                            </i>
+                          </th>
+                          <td>
+                            <label class="font-weight-normal">{{i+1}}) - {{question.name}}</label>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </ng-template>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <table class="table bg-l-gray">
+          <tbody>
+            <tr class="">
+              <td>
+                <button class="btn btn-danger" (click)="openSm(deleteModal)">Delete</button>
+              </td>
+              <td></td>
+              <td style="text-align: right">
+                <h5>Class Average</h5>
+              </td>
+              <td>
+                <h5>{{scoreAvg | percent}}</h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
 
-<div class="results">
-  <h2>Αποτελέσματα({{results.length}})</h2>
-  <button pButton  type="button" (click)="getResults()" icon="fa fa-refresh"></button>
-<div *ngIf="results.length>0">
-  <p-table [value]="results">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>AEM</th>
-        <th>Correct</th>
-        <th>Total Questions</th>
-        <th>SCORE</th>
-
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-result>
-      <tr>
-        <td>{{result.studentResults.aem}}</td>
-        <td>{{result.studentResults.correct}}</td>
-        <td>{{result.studentResults.numberOfQuestions}}</td>
-        <td>{{(result.studentResults.correct / result.studentResults.numberOfQuestions) | percent}}</td>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="footer">
-        <tr>
-            <td colspan="3">Average</td>
-            <td>{{scoreAvg | percent}}</td>
-        </tr>
-    </ng-template>
 
 
-  </p-table>
-  <button  class="ui-button-danger" style="float: right;" type="button" (click)="confirmDeleteResults() " pButton label="Delete"></button>
-</div>
-</div>
+<ng-template #editModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Edit Test</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="editTest(); c('Close click')">Yes</button>
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
 
-
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Delete Results</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="removeAllResults(); getResults(); c('Close click')">Yes</button>
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

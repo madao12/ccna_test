@@ -1,59 +1,58 @@
-<div  *ngIf="setAem!=true; else preTest" style="text-align: center">
-  <h3>Προσοχη! Δεν πρέπει να κάνετε refresh την σελίδα κατά την διάρκεια του τεστ.</h3>
-  <input pInputText [(ngModel)]="studentAem" style="text-align: left" type="number" placeholder="Εισάγετε το AEM σας"><br><br>
-  <button *ngIf="studentAem" pButton label="Συνέχεια" type="button" style="width: 180px" (click)="setAem=true;getSelectedQuestions()"></button>
+<div *ngIf="question" class="container bg-l-gray shadow-lg p-3 mb-5  rounded noselect">
+
+  <div class="row">
+    <div class="col-md-12 no-padding pad-btm">
+      <ngb-progressbar type="warning" [striped]="true" [animated]="true" [value]="progress">Progress
+        <b>{{1 + index}} of {{numberOfQuestions}}</b>...</ngb-progressbar>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-md-11">
+      <label class="json-format">
+          <h5><b>{{1 + index}})</b> - {{question.name}} (Choose {{question.numberOfAnswers}})</h5>
+      </label>
+
+    </div>
+    <div class="col-md-1 timeLeft">
+      <h5>{{(timeLeft)*1000 | date:'mm:ss'}}</h5>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row tab" *ngIf="question.images">
+    <div class="col-md-12">
+      <ngb-tabset>
+        <ngb-tab *ngFor="let image of question.images;index as i" title="Image {{1+i}}">
+          <ng-template ngbTabContent>
+            <img [src]="image.source" alt="Random first slide">
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+
+
+
+
+  <div class="row form-group">
+
+    <div class="col-md-12">
+
+      <div *ngFor="let choice of question.choices;index as i">
+        <label class="checkbox inline hover-list json-format">
+          <input #check type="checkbox" class="sm-margin" (change)="checkChoice(choice.istrue, check); setUserChoice(choice, check) " name="choice" />
+          {{numToLetter(i)}}) {{choice.answear}}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary sm-margin" (click)="getNextQuestion()" [disabled]="wrongOption+correctOption === question.numberOfAnswers ? false : true ">Επόμενη Ερώτηση</button>
+    </div>
+  </div>
+
+
 </div>
-
-<ng-template #preTest>
-    <div *ngIf="start!=true; else startTest" style="text-align: center">
-        <h1>Αριθμός ερωτήσεων: {{this.selectedQuestions.length}}</h1>
-        <h1>Χρόνος: 10 λεπτά</h1>
-        <button pButton label="Συνέχεια" type="button" style="width: 180px" (click)="start=true"></button>
-    </div>
-
-</ng-template>
-
-<ng-template #startTest>
-  <div *ngIf="question; else showResults">
-    <p-progressBar [value]="progress" [showValue]="false"></p-progressBar>
-    <div style="float: right">
-        <h1 style="display: inline;">
-          {{j}}/{{numberOfQuestions}}
-        </h1>
-    </div>
-    <h2 style="display: inline;">{{question.name}}(Choose {{question.numberOfAnswers}})</h2>
-
-    <br>
-
-    <img class="img-responsive" style="width: 30% " src="assets/images/{{question.type}}/{{question.id}}.png" alt="" />
-
-    <ul style="list-style-type:none">
-      <li *ngFor="let choice of question.choices;index as i">
-        <h3>
-          {{numToLetter(i)}})
-          <input #c type="checkbox" (change)="checkChoice(choice.istrue, c)" name="choice" />{{choice.answear}}
-        </h3>
-      </li>
-    </ul>
-
-    <div class="ui-g-12 ui-md-12 ui-lg-12" *ngIf="wrongOption+correctOption === question.numberOfAnswers">
-      <button pButton label="Επόμενη Ερώτηση" type="button" style="width: 180px" (click)="getNextQuestion()"></button>
-    </div>
-
-  </div>
-</ng-template>
-
-
-<ng-template #showResults>
-  <div *ngIf="numberOfQuestions; else mustSelect">
-    <p>Απάντησες σωστά σε
-      <b>{{correct}}</b> από τις
-      <b>{{numberOfQuestions}}</b> ερωτήσεις! </p>
-    <app-details [selectedQuestions]="selectedQuestions" [correct]="correct" [studentAem]="studentAem" [numberOfQuestions]="numberOfQuestions"></app-details>
-  </div>
-</ng-template>
-
-
-<ng-template #mustSelect>
-  <br> Δεν έχεις επιλέξει ερωτήσεις!!!
-</ng-template>

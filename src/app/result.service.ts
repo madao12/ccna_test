@@ -11,6 +11,8 @@ export interface Config {
   providedIn: 'root'
 })
 export class ResultService {
+  selectedResults: any[];
+  correct: any;
   config: Config = {
     apiUrl: 'http://localhost:4000'
   };
@@ -31,6 +33,7 @@ export class ResultService {
 
   getAllResults(): Observable<any> {
     const uri = this.config.apiUrl + '/results/';
+    console.log(this.config.apiUrl);
     return this.http.get(uri);
   }
 
@@ -39,10 +42,27 @@ export class ResultService {
     return this.http.get(uri);
   }
 
+
+
   showConfig() {
     this.configService.getConfig()
       .subscribe((data: Config) => this.config = {
           apiUrl: data['apiUrl']
       });
   }
+
+  setResults(selectedResults, correct) {
+    this.selectedResults = selectedResults;
+    this.correct = correct;
+  }
+
+
+  getTestResults() {
+    return this.selectedResults;
+  }
+  getCorrect() {
+    return this.correct;
+  }
+
+
 }

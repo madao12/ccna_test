@@ -4,18 +4,25 @@ import { QuestionService } from '../question.service';
 import { ResultService } from '../result.service';
 import { ConfirmationService } from 'primeng/api';
 import { Router } from '@angular/router';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
+
+
 
 interface Result {
   aem: String;
   correct: number;
   numberOfQuestions: number;
+  test: any;
   _id: String;
 }
 
 interface Test {
-  name: string;
-  url: string;
+  name: String;
+  url: String;
 }
+
+
 
 @Component({
   selector: 'app-control-panel',
@@ -27,19 +34,24 @@ interface Test {
 
 export class ControlPanelComponent implements OnInit {
   selectedQuestions: Question[] = [];
+
   tests;
   selectedTest: Test;
-  results: Result[] = [];
+  results = [];
+  testTime: number;
   i;
   j;
-  scoreAvg = 2;
+  scoreAvg = 0;
   scoreSum = 0;
-
+  timeUp = -7200;
+  order;
+  reverse = false;
   constructor(
     private questionService: QuestionService,
     private confirmationService: ConfirmationService,
     private resultService: ResultService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) {
     this.tests = [
       {name: 'ICND 1', url: 'assets/data/list-questions.json'},
@@ -49,26 +61,32 @@ export class ControlPanelComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getSelectedQuestions();
-    this.getResults();
-  }
+    setTimeout(() => {
+      this.getSelectedQuestions();
+      this.getResults();
+    }, 10);
 
-  addSelected() {
-    this.questionService.addSelectedQuestions(this.selectedQuestions);
+    setInterval(() => {
+      this.getResults();
+    }, 10000);
+    this.startUpTimer();
   }
-
 
   getResults() {
     this.resultService.getAllResults().subscribe(res => {
       this.results = res;
       this.resultAverage(this.results);
+
     });
 
 
   }
   getSelectedQuestions() {
     this.questionService.getSelectedQuestions()
-    .subscribe(res => this.selectedQuestions = res.selected);
+    .subscribe(res => {
+      this.selectedQuestions = res.selected;
+      this.testTime = res.testTime;
+    });
   }
 
   removeResult(id) {
@@ -78,39 +96,62 @@ export class ControlPanelComponent implements OnInit {
   }
 
 
+
+
   removeAllResults() {
-    for (this.i = 0; this.i < this.results.length; this.i++) {
-      this.removeResult(this.results[this.i]._id);
+    for (let counter = 0; counter < this.results.length; counter++) {
+      this.removeResult(this.results[counter]._id);
     }
   }
 
   resultAverage(results) {
-    for (this.j = 0; this.j < results.length; this.j++) {
-      this.scoreSum +=  (results[this.j].studentResults.correct / results[this.j].studentResults.numberOfQuestions);
+    for (let counter = 0; counter < results.length; counter++) {
+      this.scoreSum +=  (results[counter].studentResults.score);
     }
     this.scoreAvg = this.scoreSum / results.length;
+    this.scoreSum = 0;
   }
 
-  confirmDeleteResults() {
-    this.confirmationService.confirm({
-        message: 'Do you want to delete all the results?',
-        header: 'Delete Confirmation',
-        accept: () => {
-          this.removeAllResults();
-          this.getResults();
-        }
-    });
+
+  startUpTimer() {
+    setInterval(() => {
+        this.timeUp++;
+    }, 1000);
   }
 
-  confirmEditTest() {
-    this.confirmationService.confirm({
-        message: 'Do you want to edit the test?',
-        header: 'Edit Test',
-        accept: () => {
-          this.router.navigate(['/question']);
-        }
-    });
+  resetTimer() {
+    this.timeUp = -7200;
+    console.log(this.timeUp);
   }
+
+  openSm(content) {
+    this.modalService.open(content, { size: 'sm' });
+  }
+
+  editTest() {
+    this.router.navigate(['/question']);
+  }
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
+
+  openStudentResult(content) {
+    this.modalService.open(content, { size: 'lg' });
+  }
+
+  openQuestionDetails(Qcontent) {
+    this.modalService.open(Qcontent, { size: 'lg' });
+  }
+
+  numToLetter(k: number) {
+    return String.fromCharCode(65 + k);
+  }
+
+
 
 
 

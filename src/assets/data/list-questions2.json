@@ -1,60 +1,4136 @@
 [{
     "id": "1",
-    "numberOfAnswers": 3,
-    "name": "Which three statements are true about the operation of a full-duplex Ethernet network?",
-    "explanation": "Half-duplex Ethernet is defined in the original 802.3 Ethernet and Cisco says you only use one wire pair with a digital signal running in both directions on the wire. It also uses the CSMA/CD protocol to help prevent collisions and to permit retransmitting if a collision does occur. If a hub is attached to a switch, it must operate in half-duplex mode because the end stations must be able to detect collisions. Half-duplex Ethernet—typically 10BaseT—is only about 30 to 40 percent efficient as Cisco sees it, because a large 10BaseT network will usually only give you 3- to 4Mbps—at most. Full-duplex Ethernet uses two pairs of wires, instead of one wire pair like half duplex. Also, full duplex uses a point-to-point connection between the transmitter of the transmitting device and the receiver of the receiving device, which means that with full-duplex data transfer, you get a faster data transfer compared to half duplex. And because the transmitted data is sent on a different set of wires than the received data, no collisions occur. The reason you don’t need to worry about collisions is because now Full-duplex Ethernet is like a freeway with multiple lanes instead of the single-lane road provided by half duplex. Full-duplex Ethernet is supposed to offer 100 percent efficiency in both directions; this means you can get 20Mbps with a 10Mbps Ethernet running full duplex, or 200Mbps for FastEthernet.",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "Why has this switch not been elected the root bridge for VLAN1?",
+    "explanation": "",
     "choices": [{
-        "answear": "There are no collisions in full-duplex mode.",
-        "istrue": true
+        "answear": "It has more than one interface that is connected to the root network segment.",
+        "istrue": false
       },
       {
-        "answear": "A dedicated switch port is required for each full-duplex node.",
-        "istrue": true
+        "answear": "It is running RSTP while the elected root bridge is running 802.1d spanning tree.",
+        "istrue": false
       },
       {
-        "answear": "Ethernet hub ports are preconfigured for full-duplex mod.",
+        "answear": "It has a higher MAC address than the elected root bridge.",
         "istrue": false
       },
       {
 
-        "answear": "In a full-duplex environment, the host network card must check for the availability of the network media before transmitting.",
+        "answear": "It has a higher bridge ID than the elected root bridge.",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/1.jpg"}
+    ]
+  },
+  {
+    "id": "2",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which switch provides the spanning-tree designated port role for the network segment that services the printers?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Switch1",
         "istrue": false
       },
       {
-        "answear": "The host network card and the switch port must be capable of operating in full-duplex mode.",
+        "answear": "Switch2",
+        "istrue": false
+      },
+      {
+        "answear": "Switch3",
+        "istrue": true
+      },
+      {
+
+        "answear": "Switch4",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/2.jpg"}
+    ]
+  },
+  {
+    "id": "3",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "At the end of an RSTP election process, which access layer switch port will assume the discarding role?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Switch3, port fa0/1",
+        "istrue": false
+      },
+      {
+        "answear": "Switch3, port fa0/12",
+        "istrue": false
+      },
+      {
+        "answear": "Switch4, port fa0/11",
+        "istrue": true
+      },
+      {
+
+        "answear": "Switch4, port fa0/2",
+        "istrue": false
+      },
+      {
+
+        "answear": "Switch3, port Gi0/1",
+        "istrue": false
+      },
+      {
+
+        "answear": "Switch3, port Gi0/2",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/3.jpg"}
+    ]
+  },
+  {
+    "id": "4",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "Given the output shown from this Cisco Catalyst 2950, what is the reason that interface FastEthernet 0/10 is not the root port for VLAN 2?",
+    "explanation": "",
+    "choices": [{
+        "answear": "This switch has more than one interface connected to the root network segment in VLAN 2.",
+        "istrue": false
+      },
+      {
+        "answear": "This switch is running RSTP while the elected designated switch is running 802.1d Spanning Tree.",
+        "istrue": false
+      },
+      {
+        "answear": "This switch interface has a higher path cost to the root bridge than another in the topology.",
+        "istrue": true
+      },
+      {
+
+        "answear": "This switch has a lower bridge ID for VLAN 2 than the elected designated switch.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/4.jpg"}
+    ]
+  },
+  {
+    "id": "5",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two of these statements regarding RSTP are correct?",
+    "explanation": "",
+    "choices": [{
+        "answear": "RSTP cannot operate with PVST+.",
+        "istrue": false
+      },
+      {
+        "answear": "RSTP defines new port roles.",
+        "istrue": true
+      },
+      {
+        "answear": "RSTP defines no new port states.",
+        "istrue": false
+      },
+      {
+        "answear": "RSTP is a proprietary implementation of IEEE 802.1D STP.",
+        "istrue": false
+      },
+      {
+        "answear": "RSTP is compatible with the original IEEE 802.1D STP.",
         "istrue": true
       }
     ]
   },
   {
-    "id": "3",
-    "numberOfAnswers": 1,
-    "name": "Which OSI layer header contains the address of a destination host that is on another network?",
-    "explanation": "Only network address contains this information. To transmit the packets the sender uses network address and datalink address. But the layer 2 address represents just the address of the next hop device on the way to the sender. It is changed on each hop. Network address remains the same. ",
+    "id": "6",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 3,
+    "name": "Each of these four switches has been configured with a hostname, as well as being configured to run RSTP. No other configuration changes have been made. Which three of these show the correct RSTP port roles for the indicated switches and interfaces?",
+    "explanation": "",
     "choices": [{
-        "answear": "application",
-        "istrue": false
-      },
-      {
-        "answear": "session ",
-        "istrue": false
-      },
-      {
-        "answear": "transport ",
-        "istrue": false
-      },
-      {
-        "answear": "network ",
+        "answear": "SwitchA, Fa0/2, designated",
         "istrue": true
       },
       {
-        "answear": "data link",
+        "answear": "SwitchA, Fa0/1, root",
+        "istrue": true
+      },
+      {
+        "answear": "SwitchB, Gi0/2, root",
         "istrue": false
       },
       {
-        "answear": "physical ",
+        "answear": "SwitchB, Gi0/1, designated",
+        "istrue": false
+      },
+      {
+        "answear": "SwitchC, Fa0/2, root",
+        "istrue": false
+      },
+      {
+        "answear": "SwitchD, Gi0/2, root",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/6.jpg"}
+    ]
+  },
+  {
+    "id": "7",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which port state is introduced by Rapid-PVST?",
+    "explanation": "",
+    "choices": [{
+        "answear": "learning",
+        "istrue": false
+      },
+      {
+        "answear": "listening",
+        "istrue": false
+      },
+      {
+        "answear": "discarding",
+        "istrue": true
+      },
+      {
+        "answear": "forwarding",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two states are the port states when RSTP has converged?",
+    "explanation": "",
+    "choices": [{
+        "answear": "discarding",
+        "istrue": true
+      },
+      {
+        "answear": "listening",
+        "istrue": false
+      },
+      {
+        "answear": "learning",
+        "istrue": false
+      },
+      {
+        "answear": "forwarding",
+        "istrue": true
+      },
+      {
+        "answear": "disabled",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 3,
+    "name": "Which three statements about RSTP are true?",
+    "explanation": "",
+    "choices": [{
+        "answear": "RSTP significantly reduces topology reconverging time after a link failure.",
+        "istrue": true
+      },
+      {
+        "answear": "RSTP expands the STP port roles by adding the alternate and backup roles.",
+        "istrue": true
+      },
+      {
+        "answear": "RSTP port states are blocking, discarding, learning, or forwarding.",
+        "istrue": false
+      },
+      {
+        "answear": "RSTP provides a faster transition to the forwarding state on point-to-point links than STP does.",
+        "istrue": true
+      },
+      {
+        "answear": "RSTP also uses the STP proposal-agreement sequence.",
+        "istrue": false
+      },
+      {
+        "answear": "RSTP uses the same timer-based process as STP on point-to-point links.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "At which layer of the OSI model is RSTP used to prevent loops?",
+    "explanation": "",
+    "choices": [{
+        "answear": "physical",
+        "istrue": false
+      },
+      {
+        "answear": "data link",
+        "istrue": true
+      },
+      {
+        "answear": "network",
+        "istrue": false
+      },
+      {
+        "answear": "transport",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is one benefit of PVST+?",
+    "explanation": "",
+    "choices": [{
+        "answear": "PVST+ supports Layer 3 load balancing without loops.",
+        "istrue": false
+      },
+      {
+        "answear": "PVST+ reduces the CPU cycles for all the switches in the network.",
+        "istrue": false
+      },
+      {
+        "answear": "PVST+ allows the root switch location to be optimized per VLAN.",
+        "istrue": true
+      },
+      {
+        "answear": "PVST+ automatically selects the root bridge location, to provide optimized bandwidth usage.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 3,
+    "name": "Which three statements are typical characteristics of VLAN arrangements?",
+    "explanation": "",
+    "choices": [{
+        "answear": "A new switch has no VLANs configured.",
+        "istrue": false
+      },
+      {
+        "answear": "Connectivity between VLANs requires a Layer 3 device.",
+        "istrue": true
+      },
+      {
+        "answear": "VLANs typically decrease the number of collision domains.",
+        "istrue": false
+      },
+      {
+        "answear": "Each VLAN uses a separate address space.",
+        "istrue": true
+      },
+      {
+        "answear": "A switch maintains a separate bridging table for each VLAN.",
+        "istrue": true
+      },
+      {
+        "answear": "VLANs cannot span multiple switches.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 3,
+    "name": "The output that is shown is generated at a switch. Which three statements are true?",
+    "explanation": "",
+    "choices": [{
+        "answear": "All ports will be in a state of discarding, learning, or forwarding.",
+        "istrue": true
+      },
+      {
+        "answear": "Thirty VLANs have been configured on this switch.",
+        "istrue": false
+      },
+      {
+        "answear": "The bridge priority is lower than the default value for spanning tree.",
+        "istrue": true
+      },
+      {
+        "answear": "All interfaces that are shown are on shared media.",
+        "istrue": false
+      },
+      {
+        "answear": "All designated ports are in a forwarding state.",
+        "istrue": true
+      },
+      {
+        "answear": "This switch must be the root bridge for all VLANs on this switch.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/13.jpg"}
+    ]
+  },
+  {
+    "id": "14",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which term describes a spanning-tree network that has all switch ports in either the blocking or fowarding state?",
+    "explanation": "",
+    "choices": [{
+        "answear": "converged",
+        "istrue": true
+      },
+      {
+        "answear": "redundant",
+        "istrue": false
+      },
+      {
+        "answear": "provisioned",
+        "istrue": false
+      },
+      {
+        "answear": "spanned",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "A technician has configured the FastEthernet 0/1 interface on Sw11 as an access link in VLAN 1. Based on the output from the show vlan brief command issued on Sw12, what will be the result of making this change on Sw11?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Only the hosts in VLAN 1 on the two switches will be able to communicate with each other.",
+        "istrue": false
+      },
+      {
+        "answear": "The hosts in all VLANs on the two switches will be able to communicate with each other.",
+        "istrue": false
+      },
+      {
+        "answear": "Only the hosts in VLAN 10 and VLAN 15 on the two switches will be able to communicate with each other.",
+        "istrue": false
+      },
+      {
+        "answear": "Hosts will not be able to communicate between the two switches.",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/15.jpg"}
+    ]
+  },
+  {
+    "id": "16",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 2,
+    "name": "What commands must be configured on the 2950 switch and the router to allow communication between host 1 and host 2?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Router(config)# interface fastethernet 0/0 \nRouter(config-if)# ip address 192.168.1.1 255.255.255.0 \nRouter(config-if)# no shut down",
+        "istrue": false
+      },
+      {
+        "answear": "Router(config)# interface fastethernet 0/0 \nRouter(config-if)# no shut down \nRouter(config)# interface fastethernet 0/0.1 \nRouter(config-subif)# encapsulation dot1q 10 \nRouter(config-subif)# ip address 192.168.10.1 255.255.255.0 \nRouter(config)# interface fastethernet 0/0.2 \nRouter(config-subif)# encapsulation dot1q 20 \nRouter(config-subif)# ip address 192.168.20.1 255.255.255.0",
+        "istrue": true
+      },
+      {
+        "answear": "Router(config)# router eigrp 100 \nRouter(config-router)# network 192.168.10.0 \nRouter(config-router)# network 192.168.20.0",
+        "istrue": false
+      },
+      {
+        "answear": "Switch1(config)# vlan database \nSwitch1(config-vlan)# vtp domain XYZ \nSwitch1(config-vlan)# vtp server",
+        "istrue": false
+      },
+      {
+        "answear": "Switch1(config)# interface fastethernet 0/1 \nSwitch1(config-if)# switchport mode trunk",
+        "istrue": true
+      },
+      {
+        "answear": "Switch1(config)# interface vlan 1 \nSwitch1(config-if)# ip default-gateway 192.168.1.1",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/16.jpg"}
+    ]
+  },
+  {
+    "id": "17",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two statements are true about interVLAN routing in the topology that is shown in the exhibit?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Host E and host F use the same IP gateway address.",
+        "istrue": false
+      },
+      {
+        "answear": "Router1 and Switch2 should be connected via a crossover cable.",
+        "istrue": false
+      },
+      {
+        "answear": "Router1 will not play a role in communications between host A and host D.",
+        "istrue": false
+      },
+      {
+        "answear": "The FastEthernet 0/0 interface on Router1 must be configured with subinterfaces.",
+        "istrue": true
+      },
+      {
+        "answear": "Router1 needs more LAN interfaces to accommodate the VLANs that are shown in the exhibit.",
+        "istrue": false
+      },
+      {
+        "answear": "The FastEthernet 0/0 interface on Router1 and the FastEthernet 0/1 interface on Switch2 trunk ports must be configured using the same encapsulation type.",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/17.jpg"}
+    ]
+  },
+  {
+    "id": "18",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 3,
+    "name": "Which three of these statements regarding 802.1Q trunking are correct?",
+    "explanation": "",
+    "choices": [{
+        "answear": "802.1Q native VLAN frames are untagged by default.",
+        "istrue": true
+      },
+      {
+        "answear": "802.1Q trunking ports can also be secure ports.",
+        "istrue": false
+      },
+      {
+        "answear": "802.1Q trunks can use 10 Mb/s Ethernet interfaces.",
+        "istrue": true
+      },
+      {
+        "answear": "802.1Q trunks require full-duplex, point-to-point connectivity.",
+        "istrue": false
+      },
+      {
+        "answear": "802.1Q trunks should have native VLANs that are the same at both ends.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 2,
+    "name": "What are two characteristics of a switch that is configured as a VTP client?",
+    "explanation": "",
+    "choices": [{
+        "answear": "If a switch that is configured to operate in client mode cannot access a VTP server, then the switch reverts to transparent mode.",
+        "istrue": false
+      },
+      {
+        "answear": "On switches that are configured to operate in client mode, VLANs can be created, deleted, or renamed locally.",
+        "istrue": false
+      },
+      {
+        "answear": "The local VLAN configuration is updated only when an update that has a higher configuration revision number is received.",
+        "istrue": true
+      },
+      {
+        "answear": "VTP advertisements are not forwarded to neighboring switches that are configured in VTP transparent mode.",
+        "istrue": false
+      },
+      {
+        "answear": "VTP client is the default VTP mode.",
+        "istrue": false
+      },
+      {
+        "answear": "When switches in VTP client mode are rebooted, they send a VTP advertisement request to the VTP servers.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "type":"icnd2",
+    "topic":"LAN Switching Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which protocol provides a method of sharing VLAN configuration information between two Cisco switches?",
+    "explanation": "",
+    "choices": [{
+        "answear": "STP",
+        "istrue": false
+      },
+      {
+        "answear": "VTP",
+        "istrue": true
+      },
+      {
+        "answear": "802.1Q",
+        "istrue": false
+      },
+      {
+        "answear": "RSTP",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two statements describe the process identifier that is used in the command to configure OSPF on a router?\n\nRouter(config)# router ospf 1",
+    "explanation": "",
+    "choices": [{
+        "answear": "All OSPF routers in an area must have the same process ID.",
+        "istrue": false
+      },
+      {
+        "answear": "Only one process number can be used on the same router.",
+        "istrue": false
+      },
+      {
+        "answear": "Different process identifiers can be used to run multiple OSPF processes",
+        "istrue": true
+      },
+      {
+        "answear": "The process number can be any number from 1 to 65,535.",
+        "istrue": true
+      },
+      {
+        "answear": "Hello packets are sent to each neighbor to determine the processor identifier.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Given the output from the “show ip eigrp topology” command, which router is the feasible successor?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Router in Image 2",
+        "istrue": false
+      },
+      {
+        "answear": "Router in Image 3 ",
+        "istrue": true
+      },
+      {
+        "answear": "Router in Image 4",
+        "istrue": false
+      },
+      {
+        "answear": "Router in Image 5",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/22/22.jpg"},
+      {"source": "assets/images/icnd2/22/22a.jpg"},
+      {"source": "assets/images/icnd2/22/22b.jpg"},
+      {"source": "assets/images/icnd2/22/22c.jpg"},
+      {"source": "assets/images/icnd2/22/22d.jpg"}
+    ]
+  },
+  {
+    "id": "23",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "RTA is configured with a basic configuration. The link between the two routers is operational and no routing protocols are configured on either router. The line shown in the exhibit is then added to router RTA. Should interface Fa0/0 on router RTB shut down, what effect will the shutdown have on router RTA?",
+    "explanation": "",
+    "choices": [{
+        "answear": "A route to 172.16.14.0/24 will remain in the RTA routing table.",
+        "istrue": true
+      },
+      {
+        "answear": "A packet to host 172.16.14.225 will be dropped by router RTA.",
+        "istrue": false
+      },
+      {
+        "answear": "Router RTA will send an ICMP packet to attempt to verify the route.",
+        "istrue": false
+      },
+      {
+        "answear": "Because router RTB will send a poison reverse packet to router RTA, RTA will remove the route.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/23.jpg"}
+    ]
+  },
+  {
+    "id": "24",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "What can be done to secure the virtual terminal interfaces on a router?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Administratively shut down the interface.",
+        "istrue": false
+      },
+      {
+        "answear": "Physically secure the interface.",
+        "istrue": false
+      },
+      {
+        "answear": "Create an access list and apply it to the virtual terminal interfaces with the access-group command.",
+        "istrue": false
+      },
+      {
+        "answear": "Configure a virtual terminal password and login process.",
+        "istrue": true
+      },
+      {
+        "answear": "Enter an access list and apply it to the virtual terminal interfaces using the access-class command.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Based on the exhibited routing table, how will packets from a host within the 192.168.10.192/26 LAN be forwarded to 192.168.10.1?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The router will forward packets from R3 to R2 to R1.",
+        "istrue": true
+      },
+      {
+        "answear": "The router will forward packets from R3 to R1 to R2.",
+        "istrue": false
+      },
+      {
+        "answear": "The router will forward packets from R3 to R2 to R1 AND from R3 to R1.",
+        "istrue": false
+      },
+      {
+        "answear": "The router will forward packets from R3 to R1.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/25.jpg"}
+    ]
+  },
+  {
+    "id": "26",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What information about the interfaces on the Main_Campus router is true?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The LAN interfaces are configured on different subnets.",
+        "istrue": false
+      },
+      {
+        "answear": "Interface FastEthernet 0/0 is configured as a trunk.",
+        "istrue": true
+      },
+      {
+        "answear": "The Layer 2 protocol of interface Serial 0/1 is NOT operational.",
+        "istrue": false
+      },
+      {
+        "answear": "The router is a modular router with five FastEthernet interfaces.",
+        "istrue": false
+      },
+      {
+        "answear": "Interface FastEthernet 0/0 is administratively deactivated.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/26.jpg"}
+    ]
+  },
+  {
+    "id": "27",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "C-router is to be used as a 'router-on-a-stick' to route between the VLANs. All the interfaces have been properly configured and IP routing is operational. The hosts in the VLANs have been configured with the appropriate default gateway. What is true about this configuration?",
+    "explanation": "",
+    "choices": [{
+        "answear": "These commands need to be added to the configuration: \nC-router(config)# router eigrp 123 \nC-router(config-router)# network 172.19.0.0",
+        "istrue": false
+      },
+      {
+        "answear": "These commands need to be added to the configuration: \nC-router(config)# router ospf 1 \nC-router(config-router)# network 172.19.0.0 0.0.3.255 area 0",
+        "istrue": false
+      },
+      {
+        "answear": "These commands need to be added to the configuration:\nC-router(config)# router rip\nC-router(config-router)# network 172.19.0.0",
+        "istrue": false
+      },
+      {
+        "answear": "No further routing configuration is required.",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/27.jpg"}
+    ]
+  },
+  {
+    "id": "28",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Assume that all router interfaces are operational and correctly configured. In addition, assume that OSPF has been correctly configured on router R2. How will the default route configured on R1 affect the operation of R2?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Any packet destined for a network that is not directly connected to router R1 will be dropped.",
+        "istrue": false
+      },
+      {
+        "answear": "Any packet destined for a network that is not directly connected to router R2 will be dropped immediately.",
+        "istrue": false
+      },
+      {
+        "answear": "Any packet destined for a network that is not directly connected to router R2 will be dropped immediately because of the lack of a gateway on R1.",
+        "istrue": false
+      },
+      {
+        "answear": "The networks directly connected to router R2 will not be able to communicate with the 172.16.100.0, 172.16.100.128, and 172.16.100.64 subnetworks.",
+        "istrue": false
+      },
+      {
+        "answear": "Any packet destined for a network that is not referenced in the routing table of router R2 will be directed to R1. R1 will then send that packet back to R2 and a routing loop will occur.",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/28.jpg"}
+    ]
+  },
+  {
+    "id": "29",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Assume that all of the router interfaces are operational and configured correctly. How will router R2 be affected by the configuration of R1 that is shown in the exhibit?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Router R2 will not form a neighbor relationship with R1.",
+        "istrue": true
+      },
+      {
+        "answear": "Router R2 will obtain a full routing table, including a default route, from R1.",
+        "istrue": false
+      },
+      {
+        "answear": "R2 will obtain OSPF updates from R1, but will not obtain a default route from R1.",
+        "istrue": false
+      },
+      {
+        "answear": "R2 will not have a route for the directly connected serial network, but all other directly connected networks will be present, as well as the two Ethernet networks connected to R1.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/29.jpg"}
+    ]
+  },
+  {
+    "id": "30",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "The internetwork infrastructure of company XYZ consists of a single OSPF area as shown in the graphic. There is concern that a lack of router resources is impeding internetwork performance. As part of examining the router resources, the OSPF DRs need to be known. All the router OSPF priorities are at the default and the router IDs are shown with each router. Which routers are likely to have been elected as DR?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Corp-1",
+        "istrue": false
+      },
+      {
+        "answear": "Corp-2",
+        "istrue": false
+      },
+      {
+        "answear": "Corp-3",
+        "istrue": false
+      },
+      {
+        "answear": "Corp-4",
+        "istrue": true
+      },
+      {
+        "answear": "Branch-1",
+        "istrue": false
+      },
+      {
+        "answear": "Branch-2",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/30.jpg"}
+    ]
+  },
+  {
+    "id": "31",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "What are three characteristics of the OSPF routing protocol?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It converges quickly.",
+        "istrue": true
+      },
+      {
+        "answear": "OSPF is a classful routing protocol.",
+        "istrue": false
+      },
+      {
+        "answear": "It uses cost to determine the best route.",
+        "istrue": true
+      },
+      {
+        "answear": "It uses the DUAL algorithm to determine the best route.",
+        "istrue": false
+      },
+      {
+        "answear": "OSPF routers send the complete routing table to all directly attached routers.",
+        "istrue": false
+      },
+      {
+        "answear": "OSPF routers discover neighbors before exchanging routing information.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "32",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which statement is true, as relates to classful or classless routing?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Classful routing protocols send the subnet mask in routing updates.",
+        "istrue": false
+      },
+      {
+        "answear": "RIPv1 and OSPF are classless routing protocols.",
+        "istrue": false
+      },
+      {
+        "answear": "Automatic summarization at classful boundaries can cause problems on discontiguous subnets.",
+        "istrue": true
+      },
+      {
+        "answear": "EIGRP and OSPF are classful routing protocols and summarize routes by default.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "33",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which parameter or parameters are used to calculate OSPF cost in Cisco routers?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Bandwidth",
+        "istrue": true
+      },
+      {
+        "answear": "Bandwidth and Delay",
+        "istrue": false
+      },
+      {
+        "answear": "Bandwidth, Delay, and MTU",
+        "istrue": false
+      },
+      {
+        "answear": "Bandwidth, MTU, Reliability, Delay, and Load",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "34",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which statements are true about EIGRP successor routes?",
+    "explanation": "",
+    "choices": [{
+        "answear": "A successor route is used by EIGRP to forward traffic to a destination.",
+        "istrue": true
+      },
+      {
+        "answear": "Successor routes are saved in the topology table to be used if the primary route fails.",
+        "istrue": false
+      },
+      {
+        "answear": "Successor routes are flagged as 'active' in the routing table.",
+        "istrue": false
+      },
+      {
+        "answear": "A successor route may be backed up by a feasible successor route.",
+        "istrue": true
+      },
+      {
+        "answear": "Successor routes are stored in the neighbor table following the discovery process.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "35",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "The network associate is configuring OSPF on the Core router. All the connections to the branches should be participating in OSPF. The link to the ISP should NOT participate in OSPF and should only be advertised as the default route. What set of commands will properly configure the Core router?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Core(config-router)# default-information originate \nCore(config-router)# network 10.0.0.0 0.255.255.255 area 0 \nCore(config-router)# exit \nCore(config)# ip route 0.0.0.0 0.0.0.0 10.10.2.14",
+        "istrue": false
+      },
+      {
+        "answear": "Core(config-router)# default-information originate \nCore(config-router)# network 10.10.2.13 0.0.0.242 area 0 \nCore(config-router)# exit \nCore(config)# ip route 0.0.0.0 0.0.0.0 10.10.2.14",
+        "istrue": false
+      },
+      {
+        "answear": "Core(config-router)# default-information originate \nCore(config-router)# network 10.10.2.16 0.0.0.15 area 0 \nCore(config-router)# exit \nCore(config)# ip route 0.0.0.0 0.0.0.0 10.10.2.14",
+        "istrue": true
+      },
+      {
+        "answear": "Core(config-router)# default-information originate\nCore(config-router)# network 10.10.2.32 0.0.0.31 area 0\nCore(config-router)# exit\nCore(config)# ip route 0.0.0.0 0.0.0.0 10.10.2.14",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/35.jpg"}
+    ]
+  },
+  {
+    "id": "36",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two statements are true about the loopback address that is configured on RouterB?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It ensures that data will be forwarded by RouterB.",
+        "istrue": false
+      },
+      {
+        "answear": "It provides stability for the OSPF process on RouterB.",
+        "istrue": true
+      },
+      {
+        "answear": "It specifies that the router ID for RouterB should be 10.0.0.1.",
+        "istrue": true
+      },
+      {
+        "answear": "It decreases the metric for routes that are advertised from RouterB.",
+        "istrue": false
+      },
+      {
+        "answear": "It indicates that RouterB should be elected the DR for the LAN.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/36.jpg"}
+    ]
+  },
+  {
+    "id": "37",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is the default maximum number of equal-cost paths that can be placed into the routing table of a Cisco OSPF router?",
+    "explanation": "",
+    "choices": [{
+        "answear": "2",
+        "istrue": false
+      },
+      {
+        "answear": "4",
+        "istrue": true
+      },
+      {
+        "answear": "16",
+        "istrue": false
+      },
+      {
+        "answear": "unlimited",
+        "istrue": false
+      },
+      {
+        "answear": "It indicates that RouterB should be elected the DR for the LAN.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "38",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which parameter would you tune to affect the selection of a static route as a backup, when a dynamic protocol is also being used?",
+    "explanation": "",
+    "choices": [{
+        "answear": "hop count",
+        "istrue": false
+      },
+      {
+        "answear": "administrative distance",
+        "istrue": true
+      },
+      {
+        "answear": "link bandwidth",
+        "istrue": false
+      },
+      {
+        "answear": "link delay",
+        "istrue": false
+      },
+      {
+        "answear": "link cost",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "39",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "What are two drawbacks of implementing a link-state routing protocol?",
+    "explanation": "",
+    "choices": [{
+        "answear": "the sequencing and acknowledgment of link-state packets",
+        "istrue": false
+      },
+      {
+        "answear": "the requirement for a hierarchical IP addressing scheme for optimal functionality",
+        "istrue": true
+      },
+      {
+        "answear": "the high volume of link-state advertisements in a converged network",
+        "istrue": false
+      },
+      {
+        "answear": "the high demand on router resources to run the link-state routing algorithm",
+        "istrue": true
+      },
+      {
+        "answear": "the large size of the topology table listing all advertised routes in the converged network",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "40",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two are advantages of static routing when compared to dynamic routing?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Configuration complexity decreases as network size increases.",
+        "istrue": false
+      },
+      {
+        "answear": "Security increases because only the network administrator may change the routing table.",
+        "istrue": true
+      },
+      {
+        "answear": "Route summarization is computed automatically by the router.",
+        "istrue": false
+      },
+      {
+        "answear": "Routing tables adapt automatically to topology changes.",
+        "istrue": false
+      },
+      {
+        "answear": "An efficient algorithm is used to build routing tables, using automatic updates.",
+        "istrue": false
+      },
+      {
+        "answear": "Routing updates are automatically sent to neighbors.",
+        "istrue": false
+      },
+      {
+        "answear": "Routing traffic load is reduced when used in stub network links.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "41",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "A router is running three routing processes: RIP, OSPF, and EIGRP, each configured with default characteristics. Each process learns a route to the same remote network. \n\nIf there are no static routes to the destination and none of the routes were redistributed, which route will be placed in the IP routing table?",
+    "explanation": "",
+    "choices": [{
+        "answear": "the route learned through EIGRP",
+        "istrue": true
+      },
+      {
+        "answear": "the route learned through OSPF",
+        "istrue": false
+      },
+      {
+        "answear": "the route learned through RIP",
+        "istrue": false
+      },
+      {
+        "answear": "the route with the lowest metric",
+        "istrue": false
+      },
+      {
+        "answear": "all three routes with the router load balancing",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "42",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Given the output for this command, if the router ID has not been manually set, what router ID will OSPF use for this router?",
+    "explanation": "",
+    "choices": [{
+        "answear": "10.1.1.2",
+        "istrue": false
+      },
+      {
+        "answear": "10.154.154.1",
+        "istrue": false
+      },
+      {
+        "answear": "172.16.5.1",
+        "istrue": true
+      },
+      {
+        "answear": "192.168.5.3",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/42.jpg"}
+    ]
+  },
+  {
+    "id": "43",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "The internetwork infrastructure of company XYZ consists of a single OSPF area as shown in the graphic. There is concern that a lack of router resources is impeding internetwork performance. As part of examining the router resources, the OSPF DRs need to be known. All the router OSPF priorities are at the default and the router IDs are shown with each router. \nWhich routers are likely to have been elected as DR?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Corp-1",
+        "istrue": false
+      },
+      {
+        "answear": "Corp-2",
+        "istrue": false
+      },
+      {
+        "answear": "Corp-3",
+        "istrue": false
+      },
+      {
+        "answear": "Corp-4",
+        "istrue": true
+      },
+      {
+        "answear": "Branch-1",
+        "istrue": false
+      },
+      {
+        "answear": "Branch-2",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/43.jpg"}
+    ]
+  },
+  {
+    "id": "44",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What does a router do if it has no EIGRP feasible successor route to a destination network and the successor route to that destination network is in active status?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It routes all traffic that is addressed to the destination network to the interface indicated in the routing table.",
+        "istrue": false
+      },
+      {
+        "answear": "It sends a copy of its neighbor table to all adjacent routers.",
+        "istrue": false
+      },
+      {
+        "answear": "It sends a multicast query packet to all adjacent neighbors requesting available routing paths to the destination network.",
+        "istrue": true
+      },
+      {
+        "answear": "It broadcasts Hello packets to all routers in the network to re-establish neighbor adjacencies.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "45",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "The network is converged. After link-state advertisements are received from Router_A, what information will Router_E contain in its routing table for the subnets 208.149.23.64 and 208.149.23.96?",
+    "explanation": "",
+    "choices": [{
+        "answear": "O 208.149.23.64 [110/13] via 190.173.23.10, 00:00:07, FastEthernet 0/0 \nO 208.149.23.96 [110/13] via 190.173.23.10, 00:00:16, FastEthernet 0/0",
+        "istrue": true
+      },
+      {
+        "answear": "O 208.149.23.64 [110/1] via 190.172.23.10, 00:00:07, Serial 1/0 \nO 208.149.23.96 [110/3] via 190.173.23.10, 00:00:16, FastEthernet 0/0",
+        "istrue": false
+      },
+      {
+        "answear": "O 208.149.23.64 [110/13] via 190.172.23.10, 00:00:07, Serial 1/0 \nO 208.149.23.96 [110/13] via 190.172.23.10, 00:00:16, Serial 1/0 \nO 208.149.23.96 [110/13] via 190.173.23.10, 00:00:16, FastEthernet 0/0",
+        "istrue": false
+      },
+      {
+        "answear": "O 208.149.23.64 [110/3] via 190.172.23.10, 00:00:07, Serial 1/0 \nO 208.149.23.96 [110/3] via 190.172.23.10, 00:00:16, Serial 1/0",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/45.jpg"}
+    ]
+  },
+  {
+    "id": "46",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which command is used to display the collection of OSPF link states?",
+    "explanation": "",
+    "choices": [{
+        "answear": "show ip ospf link-state",
+        "istrue": false
+      },
+      {
+        "answear": "show ip ospf lsa database",
+        "istrue": false
+      },
+      {
+        "answear": "show ip ospf neighbors",
+        "istrue": false
+      },
+      {
+        "answear": "show ip ospf database",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "47",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is the default administrative distance of OSPF?",
+    "explanation": "",
+    "choices": [{
+        "answear": "90",
+        "istrue": false
+      },
+      {
+        "answear": "100",
+        "istrue": false
+      },
+      {
+        "answear": "110",
+        "istrue": true
+      },
+      {
+        "answear": "120",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "48",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "When running EIGRP, what is required for RouterA to exchange routing updates with RouterC?",
+    "explanation": "",
+    "choices": [{
+        "answear": "AS numbers must be changed to match on all the routers",
+        "istrue": true
+      },
+      {
+        "answear": "Loopback interfaces must be configured so a DR is elected",
+        "istrue": false
+      },
+      {
+        "answear": "The no auto-summary command is needed on Router A and Router C",
+        "istrue": false
+      },
+      {
+        "answear": "Router B needs to have two network statements, one for each connected network",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/48.jpg"}
+    ]
+  },
+  {
+    "id": "49",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "How will the router handle a packet destined for 192.0.2.156?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The router will drop the packet.",
+        "istrue": false
+      },
+      {
+        "answear": "The router will return the packet to its source.",
+        "istrue": false
+      },
+      {
+        "answear": "The router will forward the packet via Serial2.",
+        "istrue": true
+      },
+      {
+        "answear": "The router will forward the packet via either Serial0 or Serial1.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/49.jpg"}
+    ]
+  },
+  {
+    "id": "50",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "The Lakeside Company has the internetwork in the exhibit. The administrator would like to reduce the size of the routing table on the Central router. Which partial routing table entry in the Central router represents a route summary that represents the LANs in Phoenix but no additional subnets?",
+    "explanation": "",
+    "choices": [{
+        "answear": "10.0.0.0/22 is subnetted, 1 subnets \nD 10.0.0.0 [90/20514560] via 10.2.0.2, 6w0d, Serial0/1",
+        "istrue": false
+      },
+      {
+        "answear": "10.0.0.0/28 is subnetted, 1 subnets \nD 10.2.0.0 [90/20514560] via 10.2.0.2, 6w0d, Serial0/1",
+        "istrue": false
+      },
+      {
+        "answear": "10.0.0.0/30 is subnetted, 1 subnets \nD 10.2.2.0 [90/20514560] via 10.2.0.2, 6w0d, Serial0/1",
+        "istrue": false
+      },
+      {
+        "answear": "10.0.0.0/22 is subnetted, 1 subnets \nD 10.4.0.0 [90/20514560] via 10.2.0.2, 6w0d, Serial0/1",
+        "istrue": true
+      },
+      {
+        "answear": "10.0.0.0/28 is subnetted, 1 subnets \nD 10.4.4.0 [90/20514560] via 10.2.0.2, 6w0d, Serial0/1",
+        "istrue": false
+      },
+      {
+        "answear": "10.0.0.0/30 is subnetted, 1 subnets \nD 10.4.4.4 [90/20514560] via 10.2.0.2, 6w0d, Serial0/1",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/50.jpg"}
+    ]
+  },
+  {
+    "id": "51",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "What information does a router running a link-state protocol use to build and maintain its topological database?",
+    "explanation": "",
+    "choices": [{
+        "answear": "hello packets",
+        "istrue": true
+      },
+      {
+        "answear": "SAP messages sent by other routers",
+        "istrue": false
+      },
+      {
+        "answear": "LSAs from other routers",
+        "istrue": true
+      },
+      {
+        "answear": "beacons received on point-to-point links",
+        "istrue": false
+      },
+      {
+        "answear": "routing tables received from other link-state routers",
+        "istrue": false
+      },
+      {
+        "answear": "TTL packets from designated routers",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "52",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which commands are required to properly configure a router to run OSPF and to add network 192.168.16.0/24 to OSPF area 0?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Router(config)# router ospf 0",
+        "istrue": false
+      },
+      {
+        "answear": "Router(config)# router ospf 1",
+        "istrue": true
+      },
+      {
+        "answear": "Router(config)# router ospf area 0",
+        "istrue": false
+      },
+      {
+        "answear": "Router(config-router)# network 192.168.16.0 0.0.0.255 0",
+        "istrue": false
+      },
+      {
+        "answear": "Router(config-router)# network 192.168.16.0 0.0.0.255 area 0",
+        "istrue": true
+      },
+      {
+        "answear": "Router(config-router)# network 192.168.16.0 255.255.255.0 area 0",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "53",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which type of EIGRP route entry describes a feasible successor?",
+    "explanation": "",
+    "choices": [{
+        "answear": "a backup route, stored in the routing table",
+        "istrue": false
+      },
+      {
+        "answear": "a primary route, stored in the routing table",
+        "istrue": false
+      },
+      {
+        "answear": "a backup route, stored in the topology table",
+        "istrue": true
+      },
+      {
+        "answear": "a primary route, stored in the topology table",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "57",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "If the router Cisco returns the given output and has not had its router ID set manually, what value will OSPF use as its router ID?",
+    "explanation": "",
+    "choices": [{
+        "answear": "192.168.1.1",
+        "istrue": false
+      },
+      {
+        "answear": "172.16.1.1",
+        "istrue": false
+      },
+      {
+        "answear": "1.1.1.1",
+        "istrue": false
+      },
+      {
+        "answear": "2.2.2.2",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/57.jpg"}
+    ]
+  },
+  {
+    "id": "58",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What OSPF command, when configured, will include all interfaces into area 0?",
+    "explanation": "",
+    "choices": [{
+        "answear": "network 0.0.0.0 255.255.255.255 area 0",
+        "istrue": true
+      },
+      {
+        "answear": "network 0.0.0.0 0.0.0.0 area 0",
+        "istrue": false
+      },
+      {
+        "answear": "network 255.255.255.255 0.0.0.0 area 0",
+        "istrue": false
+      },
+      {
+        "answear": "network all-interfaces area 0",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "59",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which statement describes the process ID that is used to run OSPF on a router?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It is globally significant and is used to represent the AS number.",
+        "istrue": false
+      },
+      {
+        "answear": "It is locally significant and is used to identify an instance of the OSPF database.",
+        "istrue": true
+      },
+      {
+        "answear": "It is globally significant and is used to identify OSPF stub areas.",
+        "istrue": false
+      },
+      {
+        "answear": "It is locally significant and must be the same throughout an area.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "60",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two statements about the OSPF Router ID are true?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It identifies the source of a Type 1 LSA.",
+        "istrue": true
+      },
+      {
+        "answear": "It should be the same on all routers in an OSPF routing instance.",
+        "istrue": false
+      },
+      {
+        "answear": "By default, the lowest IP address on the router becomes the OSPF Router ID.",
+        "istrue": false
+      },
+      {
+        "answear": "The router automatically chooses the IP address of a loopback as the OSPF Router ID.",
+        "istrue": true
+      },
+      {
+        "answear": "It is created using the MAC Address of the loopback interface.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "61",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "What are two benefits of using a single OSPF area network design?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It is less CPU intensive for routers in the single area.",
+        "istrue": false
+      },
+      {
+        "answear": "It reduces the types of LSAs that are generated.",
+        "istrue": true
+      },
+      {
+        "answear": "It removes the need for virtual links.",
+        "istrue": true
+      },
+      {
+        "answear": "It increases LSA response times.",
+        "istrue": false
+      },
+      {
+        "answear": "It reduces the number of required OSPF neighbor adjacencies.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "62",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What can cause two OSPF neighbors to be stuck in the EXSTART state?",
+    "explanation": "",
+    "choices": [{
+        "answear": "There is a low bandwidth connection between neighbors.",
+        "istrue": false
+      },
+      {
+        "answear": "The neighbors have different MTU settings.",
+        "istrue": true
+      },
+      {
+        "answear": "The OSPF interfaces are in a passive state.",
+        "istrue": false
+      },
+      {
+        "answear": "There is only layer one connectivity between neighbors.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "63",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "What are two enhancements that OSPFv3 supports over OSPFv2?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It requires the use of ARP.",
+        "istrue": false
+      },
+      {
+        "answear": "It can support multiple IPv6 subnets on a single link.",
+        "istrue": true
+      },
+      {
+        "answear": "It supports up to 2 instances of OSPFv3 over a common link.",
+        "istrue": false
+      },
+      {
+        "answear": "It routes over links rather than over networks.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "64",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "What are the two default metrics used by EIGRP for route selection?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Bandwidth",
+        "istrue": true
+      },
+      {
+        "answear": "Delay",
+        "istrue": true
+      },
+      {
+        "answear": "Reliability",
+        "istrue": false
+      },
+      {
+        "answear": "Load",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "65",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What address is a feasible successor?",
+    "explanation": "",
+    "choices": [{
+        "answear": "172.16.4.0",
+        "istrue": false
+      },
+      {
+        "answear": "10.1.4.4",
+        "istrue": false
+      },
+      {
+        "answear": "10.1.2.2",
+        "istrue": true
+      },
+      {
+        "answear": "172.16.3.0",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/65.jpg"}
+    ]
+  },
+  {
+    "id": "66",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which statement describes an EIGRP feasible successor route?",
+    "explanation": "",
+    "choices": [{
+        "answear": "A primary route, added to the routing table",
+        "istrue": false
+      },
+      {
+        "answear": "A backup route, added to the routing table",
+        "istrue": false
+      },
+      {
+        "answear": "A primary route, added to the topology table",
+        "istrue": false
+      },
+      {
+        "answear": "A backup route, added to the topology table",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "67",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "If the router R1 returns the given output and has not had its router ID set manually, what address will EIGRP use as its router ID?",
+    "explanation": "",
+    "choices": [{
+        "answear": "192.168.1.2",
+        "istrue": false
+      },
+      {
+        "answear": "172.16.4.1",
+        "istrue": false
+      },
+      {
+        "answear": "192.168.10.2",
+        "istrue": false
+      },
+      {
+        "answear": "1.1.1.1",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/67.jpg"}
+    ]
+  },
+  {
+    "id": "68",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "Which three EIGRP routes will be present in the router R4's routing table?",
+    "explanation": "",
+    "choices": [{
+        "answear": "172.16.1.0/24",
+        "istrue": false
+      },
+      {
+        "answear": "10.1.10.0/30",
+        "istrue": false
+      },
+      {
+        "answear": "10.0.0.0/8",
+        "istrue": true
+      },
+      {
+        "answear": "10.1.11.0/30",
+        "istrue": false
+      },
+      {
+        "answear": "172.16.0.0/16",
+        "istrue": true
+      },
+      {
+        "answear": "192.168.1.0/24",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/68.jpg"}
+    ]
+  },
+  {
+    "id": "69",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "A network administrator is troubleshooting an EIGRP problem on a router and needs to confirm the IP addresses of the devices with which the router has established adjacency. The retransmit interval and the queue counts for the adjacent routers also need to be checked. What command will display the required information?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Router# show ip eigrp adjacency",
+        "istrue": false
+      },
+      {
+        "answear": "Router# show ip eigrp topology",
+        "istrue": false
+      },
+      {
+        "answear": "Router#show ip eigrp interfaces",
+        "istrue": false
+      },
+      {
+        "answear": "Router#show ip eigrp neighbors",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "70",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "The company uses EIGRP as the routing protocol. What path will packets take from a host on \n192.168.10.192/26 network to a host on the LAN attached to router R1? \n\nR3# show ip route \nGateway of last resort is not set \n192 168.20.0/24 is variably subnetted, 6 subnets, 2 masks \nD 192.168.20.64/26 [90/2195456] via 192.168.20.9, 00:03:31, Serial0/0 \nD 192.168.20.0/30 [90/2681856] via 192.168.20.9, 00:03:31, Serial0/0 \nC 192.168.20.4/30 is directly connected, Serial0/1 \nC 192.168.20.8/30 is directly connected, Serial0/0 \nC 192.168.20.192/26 is directly connected, FastEthernet0/0 \nD 192.168.20.128/26 [90/2195456] via 192.168.20.5,00:03:31, Serial0/1",
+    "explanation": "",
+    "choices": [{
+        "answear": "The path of the packets will be R3 to R2 to R1",
+        "istrue": false
+      },
+      {
+        "answear": "The path of the packets will be R3 to R1 to R2",
+        "istrue": false
+      },
+      {
+        "answear": "The path of the packets will be both R3 to R2 to R1 and R3 to R1",
+        "istrue": false
+      },
+      {
+        "answear": "The path of the packets will be R3 to R1",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/70.jpg"}
+    ]
+  },
+  {
+    "id": "71",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "A router receives information about network 192.168.10.0/24 from multiple sources. What will the router consider the most reliable information about the path to that network?",
+    "explanation": "",
+    "choices": [{
+        "answear": "an OSPF update for network 192.168.0.0/16",
+        "istrue": false
+      },
+      {
+        "answear": "a static route to network 192.168.10.0/24",
+        "istrue": false
+      },
+      {
+        "answear": "a static route to network 192.168.10.0/24 with a local serial interface configured as the next hop",
+        "istrue": false
+      },
+      {
+        "answear": "a RIP update for network 192.168.10.0/24",
+        "istrue": false
+      },
+      {
+        "answear": "a directly connected interface with an address of 192.168.10.254/24",
+        "istrue": true
+      },
+      {
+        "answear": "a default route with a next hop address of 192.168.10.1",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/70.jpg"}
+    ]
+  },
+  {
+    "id": "72",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Host A pings interface S0/0 on router 3, what is the TTL value for that ping?",
+    "explanation": "",
+    "choices": [{
+        "answear": "253",
+        "istrue": true
+      },
+      {
+        "answear": "252",
+        "istrue": false
+      },
+      {
+        "answear": "255",
+        "istrue": false
+      },
+      {
+        "answear": "254",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/72.jpg"}
+    ]
+  },
+  {
+    "id": "73",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "A packet with a source IP address of 192.168.2.4 and a destination IP address of 10.1.1.4 arrives at the AcmeB router. What action does the router take?",
+    "explanation": "",
+    "choices": [{
+        "answear": "forwards the received packet out the Serial0/0 interface",
+        "istrue": false
+      },
+      {
+        "answear": "forwards a packet containing an EIGRP advertisement out the Serial0/1 interface",
+        "istrue": false
+      },
+      {
+        "answear": "forwards a packet containing an ICMP message out the FastEthemet0/0 interface",
+        "istrue": true
+      },
+      {
+        "answear": "forwards a packet containing an ARP request out the FastEthemet0/1 interface",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/73.jpg"}
+    ]
+  },
+  {
+    "id": "74",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "From R1, a network administrator is able to ping the serial interface of R2 but, unable to ping any of the subnets attached to RouterB. Based on the partial outputs in the exhibit, what could be the problem?",
+    "explanation": "",
+    "choices": [{
+        "answear": "EIGRP does not support VLSM.",
+        "istrue": false
+      },
+      {
+        "answear": "The EIGRP network statements are incorrectly configured.",
+        "istrue": false
+      },
+      {
+        "answear": "The IP addressing on the serial interface of RouterA is incorrect.",
+        "istrue": false
+      },
+      {
+        "answear": "The routing protocol has summarized on the classful boundary.",
+        "istrue": true
+      },
+      {
+        "answear": "EIGRP has been configured with an invalid autonomous system number.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/74/74.jpg"},
+      {"source": "assets/images/icnd2/74/74_1.jpg"}
+    ]
+  },
+  {
+    "id": "75",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "When a router undergoes the exchange protocol within OSPF, in what order does it pass through each state?",
+    "explanation": "",
+    "choices": [{
+        "answear": "exstart state > loading state > exchange state > full state",
+        "istrue": false
+      },
+      {
+        "answear": "exstart state > exchange state > loading state > full state",
+        "istrue": true
+      },
+      {
+        "answear": "exstart state > full state > loading state > exchange state",
+        "istrue": false
+      },
+      {
+        "answear": "loading state > exchange state > full state > exstart state",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "76",
+    "type":"icnd2",
+    "topic":"IP Services",
+    "numberOfAnswers": 1,
+    "name": "Which command enables IPv6 forwarding on a Cisco router?",
+    "explanation": "",
+    "choices": [{
+        "answear": "ipv6 local",
+        "istrue": false
+      },
+      {
+        "answear": "ipv6 host",
+        "istrue": false
+      },
+      {
+        "answear": "ipv6 unicast-routing",
+        "istrue": true
+      },
+      {
+        "answear": "ipv6 neighbor",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "77",
+    "type":"icnd2",
+    "topic":"IP Services",
+    "numberOfAnswers": 2,
+    "name": "The following configuration is applied to a Layer 2 Switch: \n\ninterface fastethernet 0/4 \nswitchport mode access \nswitchport port-security \nswitchport port-security mac-address 0000.1111.1111 \nswitchport port-security maximum 2 \nswithcport port-security \n\nWhat is the result of the above configuration being applied to the switch?",
+    "explanation": "",
+    "choices": [{
+        "answear": "A host with a mac address of 0000.1111.1111 and up to two other hosts can connect to FastEthernet 0/4 simultaneously",
+        "istrue": false
+      },
+      {
+        "answear": "A host with a mac address of 0000.1111.1111 and one other host can connect to Fast Ethernet 0/4 simultaneously",
+        "istrue": true
+      },
+      {
+        "answear": "Violating addresses are dropped and no record of the violation is kept",
+        "istrue": false
+      },
+      {
+        "answear": "The switch can send an SNMP message to the network management station",
+        "istrue": true
+      },
+      {
+        "answear": "The port is effectively shutdown",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "78",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which of these correctly describes the results of port security violation of an unknown packet?",
+    "explanation": "",
+    "choices": [{
+        "answear": "port enabled; unknown packets dropped; no SNMP or syslog messages",
+        "istrue": false
+      },
+      {
+        "answear": "port enabled; unknown packets dropped; SNMP or syslog messages",
+        "istrue": false
+      },
+      {
+        "answear": "port disabled; no SNMP or syslog messages",
+        "istrue": false
+      },
+      {
+        "answear": "port disabled; SNMP or syslog messages",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/78.jpg"}
+    ]
+  },
+  {
+    "id": "79",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "What three actions will the switch take when a frame with an unknown source MAC address arrives at the interface?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Send an SNMP trap.",
+        "istrue": true
+      },
+      {
+        "answear": "Send a syslog message.",
+        "istrue": true
+      },
+      {
+        "answear": "Increment the Security Violation counter.",
+        "istrue": true
+      },
+      {
+        "answear": "Forward the traffic.",
+        "istrue": false
+      },
+      {
+        "answear": "Write the MAC address to the startup-config.",
+        "istrue": false
+      },
+      {
+        "answear": "Shut down the port.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/79.jpg"}
+    ]
+  },
+  {
+    "id": "80",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "In GLBP, which router will respond to client ARP requests?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The active virtual gateway will reply with one of four possible virtual MAC addresses.",
+        "istrue": true
+      },
+      {
+        "answear": "All GLBP member routers will reply in round-robin fashion.",
+        "istrue": false
+      },
+      {
+        "answear": "The active virtual gateway will reply with its own hardware MAC address.",
+        "istrue": false
+      },
+      {
+        "answear": "The GLBP member routers will reply with one of four possible burned in hardware addresses.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "81",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which statement describes VRRP object tracking?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It monitors traffic flow and link utilization.",
+        "istrue": false
+      },
+      {
+        "answear": "It ensures the best VRRP router is the virtual router master for the group.",
+        "istrue": true
+      },
+      {
+        "answear": "It causes traffic to dynamically move to higher bandwidth links.",
+        "istrue": false
+      },
+      {
+        "answear": "It thwarts man-in-the-middle attacks.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "82",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "Which three statements about HSRP operation are true?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The virtual IP address and virtual MA+K44C address are active on the HSRP Master router.",
+        "istrue": true
+      },
+      {
+        "answear": "The HSRP default timers are a 3 second hello interval and a 10 second dead interval.",
+        "istrue": true
+      },
+      {
+        "answear": "HSRP supports only clear-text authentication.",
+        "istrue": false
+      },
+      {
+        "answear": "The HSRP virtual IP address must be on a different subnet than the routers' interfaces on the same LAN.",
+        "istrue": false
+      },
+      {
+        "answear": "The HSRP virtual IP address must be the same as one of the router's interface addresses on the LAN.",
+        "istrue": false
+      },
+      {
+        "answear": "HSRP supports up to 255 groups per interface, enabling an administrative form of load balancing.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "83",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What Cisco IOS feature can be enabled to pinpoint an application that is causing slow network performance?",
+    "explanation": "",
+    "choices": [{
+        "answear": "SNMP",
+        "istrue": false
+      },
+      {
+        "answear": "Netflow",
+        "istrue": true
+      },
+      {
+        "answear": "WCCP",
+        "istrue": false
+      },
+      {
+        "answear": "IP SLA",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "84",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What command visualizes the general NetFlow data on the command line?",
+    "explanation": "",
+    "choices": [{
+        "answear": "show ip flow export",
+        "istrue": false
+      },
+      {
+        "answear": "show ip flow top-talkers",
+        "istrue": false
+      },
+      {
+        "answear": "show ip cache flow",
+        "istrue": true
+      },
+      {
+        "answear": "show mls sampling",
+        "istrue": false
+      },
+      {
+        "answear": "show mls netflow ip",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "85",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "What are three values that must be the same within a sequence of packets for Netflow to consider them a network flow?",
+    "explanation": "",
+    "choices": [{
+        "answear": "source IP address",
+        "istrue": true
+      },
+      {
+        "answear": "source MAC address",
+        "istrue": false
+      },
+      {
+        "answear": "egress interface",
+        "istrue": false
+      },
+      {
+        "answear": "ingress interface",
+        "istrue": true
+      },
+      {
+        "answear": "destination IP address",
+        "istrue": true
+      },
+      {
+        "answear": "IP next-hop",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "86",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "What are three factors a network administrator must consider before implementing Netflow in the network?",
+    "explanation": "",
+    "choices": [{
+        "answear": "CPU utilization",
+        "istrue": true
+      },
+      {
+        "answear": "where Netflow data will be sent",
+        "istrue": true
+      },
+      {
+        "answear": "number of devices exporting Netflow data",
+        "istrue": true
+      },
+      {
+        "answear": "port availability",
+        "istrue": false
+      },
+      {
+        "answear": "SNMP version",
+        "istrue": false
+      },
+      {
+        "answear": "WAN encapsulation",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "87",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "What are the benefit of using Netflow?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Network, Application & User Monitoring",
+        "istrue": true
+      },
+      {
+        "answear": "Network Planning",
+        "istrue": false
+      },
+      {
+        "answear": "Security Analysis",
+        "istrue": true
+      },
+      {
+        "answear": "Accounting/Billing",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "88",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "What are three benefits of GLBP?",
+    "explanation": "",
+    "choices": [{
+        "answear": "GLBP supports up to eight virtual forwarders per GLBP group.",
+        "istrue": false
+      },
+      {
+        "answear": "GLBP supports clear text and MD5 password authentication between GLBP group members.",
+        "istrue": true
+      },
+      {
+        "answear": "GLBP is an open source standardized protocol that can be used with multiple vendors.",
+        "istrue": false
+      },
+      {
+        "answear": "GLBP supports up to 1024 virtual routers.",
+        "istrue": true
+      },
+      {
+        "answear": "GLBP can load share traffic across a maximum of four routers.",
+        "istrue": true
+      },
+      {
+        "answear": "GLBP elects two AVGs and two standby AVGs for redundancy.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "89",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "The following commands are executed on interface fa0/1 of 2950Switch. \n\n2950Switch(config-if)# switchport port-security \n2950Switch(config-if)# switchport port-security mac-address sticky \n2950Switch(config-if)# switchport port-security maximum 1 \n\nThe Ethernet frame that is shown arrives on interface fa0/1. What two functions will occur when this frame is received by 2950Switch?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The MAC address table will now have an additional entry of fa0/1 FFFF.FFFF.FFFF.",
+        "istrue": false
+      },
+      {
+        "answear": "Only host A will be allowed to transmit frames on fa0/1.",
+        "istrue": true
+      },
+      {
+        "answear": "This frame will be discarded when it is received by 2950Switch.",
+        "istrue": false
+      },
+      {
+        "answear": "All frames arriving on 2950Switch with a destination of 0000.00aa.aaaa will be forwarded out fa0/1.",
+        "istrue": true
+      },
+      {
+        "answear": "Hosts B and C may forward frames out fa0/1 but frames arriving from other switches will not be forwarded out fa0/1.",
+        "istrue": false
+      },
+      {
+        "answear": "Only frames from source 0000.00bb.bbbb, the first learned MAC address of 2950Switch, will be forwarded out fa0/1.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/89.jpg"}
+    ]
+  },
+  {
+    "id": "90",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "A network administrator needs to configure port security on a switch. Which two statements are true?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The network administrator can apply port security to dynamic access ports.",
+        "istrue": false
+      },
+      {
+        "answear": "When dynamic MAC address learning is enabled on an interface, the switch can learn new addresses, up to the maximum defined.",
+        "istrue": true
+      },
+      {
+        "answear": "The sticky learning feature allows the addition of dynamically learned addresses to the running configuration.",
+        "istrue": true
+      },
+      {
+        "answear": "The network administrator can configure static secure or sticky secure MAC addresses in the voice VLAN.",
+        "istrue": false
+      },
+      {
+        "answear": "The network administrator can apply port security to EtherChannels.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "91",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 2,
+    "name": "The network administrator has been asked to give reasons for moving from IPv4 to IPv6. What are two valid reasons for adopting IPv6 over IPv4?",
+    "explanation": "",
+    "choices": [{
+        "answear": "no broadcast",
+        "istrue": true
+      },
+      {
+        "answear": "change of source address in the IPv6 header",
+        "istrue": false
+      },
+      {
+        "answear": "change of destination address in the IPv6 header",
+        "istrue": false
+      },
+      {
+        "answear": "Telnet access does not require a password",
+        "istrue": false
+      },
+      {
+        "answear": "autoconfig",
+        "istrue": true
+      },
+      {
+        "answear": "NAT",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "92",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which of these represents an IPv6 link-local address?",
+    "explanation": "",
+    "choices": [{
+        "answear": "FE80::380e:611a:e14f:3d69",
+        "istrue": true
+      },
+      {
+        "answear": "FE81::280f:512b:e14f:3d69",
+        "istrue": false
+      },
+      {
+        "answear": "FEFE:0345:5f1b::e14d:3d69",
+        "istrue": false
+      },
+      {
+        "answear": "FE08::280e:611:a:f14f:3d69",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "93",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is a valid HSRP virtual MAC address?",
+    "explanation": "",
+    "choices": [{
+        "answear": "0000.5E00.01A3",
+        "istrue": false
+      },
+      {
+        "answear": "0007.B400.AE01",
+        "istrue": false
+      },
+      {
+        "answear": "0000.0C07.AC15",
+        "istrue": true
+      },
+      {
+        "answear": "0007.5E00.B301",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "94",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 1,
+    "name": "What Netflow component can be applied to an interface to track IPv4 traffic?",
+    "explanation": "",
+    "choices": [{
+        "answear": "flow monitor",
+        "istrue": true
+      },
+      {
+        "answear": "flow record",
+        "istrue": false
+      },
+      {
+        "answear": "flow sampler",
+        "istrue": false
+      },
+      {
+        "answear": "flow exporter",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "95",
+    "type":"icnd2",
+    "topic":"IP Routing Technologies",
+    "numberOfAnswers": 3,
+    "name": "What are three reasons to collect Netflow data on a company network?",
+    "explanation": "",
+    "choices": [{
+        "answear": "To identify applications causing congestion",
+        "istrue": true
+      },
+      {
+        "answear": "To authorize user network access",
+        "istrue": false
+      },
+      {
+        "answear": "To report and alert link up / down instances",
+        "istrue": false
+      },
+      {
+        "answear": "To diagnose slow network performance, bandwidth hogs, and bandwidth utilization",
+        "istrue": true
+      },
+      {
+        "answear": "To detect suboptimal routing in the network",
+        "istrue": false
+      },
+      {
+        "answear": "To confirm the appropriate amount of bandwidth that has been allocated to each Class of Service",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "96",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "Assuming that the entire network topology is shown, what is the operational status of the interfaces of R2 as indicated by the command output shown?",
+    "explanation": "",
+    "choices": [{
+        "answear": "One interface has a problem.",
+        "istrue": false
+      },
+      {
+        "answear": "Two interfaces have problems.",
+        "istrue": false
+      },
+      {
+        "answear": "The interfaces are functioning correctly.",
+        "istrue": true
+      },
+      {
+        "answear": "The operational status of the interfaces cannot be determined from the output shown.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/96.jpg"}
+    ]
+  },
+  {
+    "id": "97",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 2,
+    "name": "Hosts in network 192.168.2.0 are unable to reach hosts in network 192.168.3.0. Based on the output from RouterA, what are two possible reasons for the failure?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The cable that is connected to S0/0 on RouterA is faulty.",
+        "istrue": false
+      },
+      {
+        "answear": "Interface S0/0 on RouterB is administratively down.",
+        "istrue": false
+      },
+      {
+        "answear": "Interface S0/0 on RouterA is configured with an incorrect subnet mask.",
+        "istrue": false
+      },
+      {
+        "answear": "The IP address that is configured on S0/0 of RouterB is not in the correct subnet.",
+        "istrue": false
+      },
+      {
+        "answear": "Interface S0/0 on RouterA is not receiving a clock signal from the CSU/DSU.",
+        "istrue": true
+      },
+      {
+        "answear": "The encapsulation that is configured on S0/0 of RouterB does not match the encapsulation that is configured on S0/0 of RouterA.",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/97.jpg"}
+    ]
+  },
+  {
+    "id": "98",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "OSPF is configured using default classful addressing. With all routers and interfaces operational, how many networks will be in the routing table of R1 that are indicated to be learned by OSPF?",
+    "explanation": "",
+    "choices": [{
+        "answear": "2",
+        "istrue": false
+      },
+      {
+        "answear": "3",
+        "istrue": false
+      },
+      {
+        "answear": "4",
+        "istrue": true
+      },
+      {
+        "answear": "5",
+        "istrue": false
+      },
+      {
+        "answear": "6",
+        "istrue": false
+      },
+      {
+        "answear": "7",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/98/98.jpg"},
+      {"source": "assets/images/icnd2/98/98_1.jpg"}
+    ]
+  },
+  {
+    "id": "99",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "After the network has converged, what type of messaging, if any, occurs between R3 and R4?",
+    "explanation": "",
+    "choices": [{
+        "answear": "No messages are exchanged.",
+        "istrue": false
+      },
+      {
+        "answear": "Hellos are sent every 10 seconds.",
+        "istrue": true
+      },
+      {
+        "answear": "The full database from each router is sent every 30 seconds.",
+        "istrue": false
+      },
+      {
+        "answear": "The routing table from each router is sent every 60 seconds.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/99/99.jpg"},
+      {"source": "assets/images/icnd2/99/99_1.jpg"}
+    ]
+  },
+  {
+    "id": "100",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 2,
+    "name": "To allow or prevent load balancing to network 172.16.3.0/24, which of the following commands could be used in R2?",
+    "explanation": "",
+    "choices": [{
+        "answear": "R2(config-if)#clock rate",
+        "istrue": false
+      },
+      {
+        "answear": "R2(config-if)#bandwidth",
+        "istrue": true
+      },
+      {
+        "answear": "R2(config-if)#ip ospf cost",
+        "istrue": true
+      },
+      {
+        "answear": "R2(config-if)#ip ospf priority",
+        "istrue": false
+      },
+      {
+        "answear": "R2(config-router)#distance ospf",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/100/100.jpg"},
+      {"source": "assets/images/icnd2/100/100_1.jpg"}
+    ]
+  },
+  {
+    "id": "101",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "R1 is configured with the default configuration of OSPF.\nFrom the following list of IP addresses configured on R1, which address will the OSPF process select as the router ID?",
+    "explanation": "",
+    "choices": [{
+        "answear": "192.168.0.1",
+        "istrue": true
+      },
+      {
+        "answear": "172.16.1.1",
+        "istrue": false
+      },
+      {
+        "answear": "172.16.2.1",
+        "istrue": false
+      },
+      {
+        "answear": "172.16.2.225",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/101/101.jpg"},
+      {"source": "assets/images/icnd2/101/101_1.jpg"}
+    ]
+  },
+  {
+    "id": "102",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "If required, what password should be configured on the DeepSouth router in the branch office to allow a connection to be established with the MidEast router?",
+    "explanation": "",
+    "choices": [{
+        "answear": "No password is required.",
+        "istrue": false
+      },
+      {
+        "answear": "Enable",
+        "istrue": true
+      },
+      {
+        "answear": "Secret",
+        "istrue": false
+      },
+      {
+        "answear": "Telnet",
+        "istrue": false
+      },
+      {
+        "answear": "Console",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/102/102.jpg"},
+      {"source": "assets/images/icnd2/102/102_1.jpg"},
+      {"source": "assets/images/icnd2/102/102_2.jpg"}
+    ]
+  },
+  {
+    "id": "103",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "What would be the destination Layer 2 address in the frame header for a frame that is being forwarded by Dubai to the host address of 172.30.4.4?",
+    "explanation": "",
+    "choices": [{
+        "answear": "825",
+        "istrue": false
+      },
+      {
+        "answear": "230",
+        "istrue": false
+      },
+      {
+        "answear": "694",
+        "istrue": true
+      },
+      {
+        "answear": "387",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/103/103.jpg"},
+      {"source": "assets/images/icnd2/103/103_1.jpg"},
+      {"source": "assets/images/icnd2/103/103_2.jpg"}
+    ]
+  },
+  {
+    "id": "104",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "Which connection uses the default encapsulation for serial interfaces on Cisco routers?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The serial connection to the NorthCoast branch office.",
+        "istrue": false
+      },
+      {
+        "answear": "The serial connection to the North branch office.",
+        "istrue": true
+      },
+      {
+        "answear": "The serial connection to the Southlands branch office.",
+        "istrue": false
+      },
+      {
+        "answear": "The serial connection to the Multinational Core.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/104/104.jpg"},
+      {"source": "assets/images/icnd2/104/104_1.jpg"},
+      {"source": "assets/images/icnd2/104/104_2.jpg"}
+    ]
+  },
+  {
+    "id": "105",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "A static map to the S-AMER location is required. Which command should be used to create this map?",
+    "explanation": "",
+    "choices": [{
+        "answear": "frame-relay map ip 172.30.0.3 825 broadcast",
+        "istrue": false
+      },
+      {
+        "answear": "frame-relay map ip 172.30.0.3 230 broadcast",
+        "istrue": true
+      },
+      {
+        "answear": "frame-relay map ip 172.30.0.3 694 broadcast",
+        "istrue": false
+      },
+      {
+        "answear": "frame-relay map ip 172.30.0.3 387 broadcast",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/105/105.jpg"},
+      {"source": "assets/images/icnd2/105/105_1.jpg"},
+      {"source": "assets/images/icnd2/105/105_2.jpg"}
+    ]
+  },
+  {
+    "id": "106",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "Scenario \n\nRefer to the topology. Your company has connected the routers R1. R2. and R3 with serial links. \nR2 and R3 are connected to the switches SW1 and SW2, respectively. SW1 and SW2 are also \nconnected to the routers R4 and R5. \nThe EIGRP routing protocol is configured. \nYou are required to troubleshoot and resolve the EIGRP issues between the various routers. \nUse the appropriate show commands to troubleshoot the issues. \n\n\nThe loopback interfaces on R4 with the IP addresses of 10.4.4.4 /32, 10.4.4.5/32. and 10.4.4.6/32 are not appearing in the routing table of R5 Why are the interfaces missing?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The interfaces are shutdown, so they are not being advertised.",
+        "istrue": false
+      },
+      {
+        "answear": "R4 has been incorrectly configured to be in another AS, so it does not peer with R5.",
+        "istrue": true
+      },
+      {
+        "answear": "Automatic summarization is enabled, so only the 10.0.0.0 network is displayed.",
+        "istrue": false
+      },
+      {
+        "answear": "The loopback addresses haven't been advertised, and the network command is missing on R4.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/106/1.jpg"},
+      {"source": "assets/images/icnd2/106/2.jpg"},
+      {"source": "assets/images/icnd2/106/3.jpg"},
+      {"source": "assets/images/icnd2/106/4.jpg"},
+      {"source": "assets/images/icnd2/106/5.jpg"},
+      {"source": "assets/images/icnd2/106/6.jpg"},
+      {"source": "assets/images/icnd2/106/7.jpg"},
+      {"source": "assets/images/icnd2/106/8.jpg"},
+      {"source": "assets/images/icnd2/106/9.jpg"}
+    ]
+  },
+  {
+    "id": "107",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "Scenario \n\nRefer to the topology. Your company has connected the routers R1. R2. and R3 with serial links. \nR2 and R3 are connected to the switches SW1 and SW2, respectively. SW1 and SW2 are also \nconnected to the routers R4 and R5. \nThe EIGRP routing protocol is configured. \nYou are required to troubleshoot and resolve the EIGRP issues between the various routers. \nUse the appropriate show commands to troubleshoot the issues. \n\nWhich path does traffic take from R1 to R5?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The traffic goes through R2.",
+        "istrue": true
+      },
+      {
+        "answear": "The traffic goes through R3.",
+        "istrue": false
+      },
+      {
+        "answear": "The traffic is equally load-balanced over R2 and R3.",
+        "istrue": false
+      },
+      {
+        "answear": "The traffic is unequally load-balanced over R2 and R3.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/107/1.jpg"},
+      {"source": "assets/images/icnd2/107/2.jpg"},
+      {"source": "assets/images/icnd2/107/3.jpg"},
+      {"source": "assets/images/icnd2/107/4.jpg"},
+      {"source": "assets/images/icnd2/107/5.jpg"},
+      {"source": "assets/images/icnd2/107/6.jpg"},
+      {"source": "assets/images/icnd2/107/7.jpg"},
+      {"source": "assets/images/icnd2/107/8.jpg"},
+      {"source": "assets/images/icnd2/107/9.jpg"}
+    ]
+  },
+  {
+    "id": "108",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "Scenario \n\nRefer to the topology. Your company has connected the routers R1. R2. and R3 with serial links. \nR2 and R3 are connected to the switches SW1 and SW2, respectively. SW1 and SW2 are also \nconnected to the routers R4 and R5. \nThe EIGRP routing protocol is configured. \nYou are required to troubleshoot and resolve the EIGRP issues between the various routers. \nUse the appropriate show commands to troubleshoot the issues. \n\nRouter R6 does not form an EIGRP neighbor relationship correctly with router R1. What is the cause for this misconfiguration?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The K values mismatch.",
+        "istrue": false
+      },
+      {
+        "answear": "The AS does not match.",
+        "istrue": false
+      },
+      {
+        "answear": "The network command is missing.",
+        "istrue": true
+      },
+      {
+        "answear": "The passive-interface command is enabled.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/108/1.jpg"},
+      {"source": "assets/images/icnd2/108/2.jpg"},
+      {"source": "assets/images/icnd2/108/3.jpg"},
+      {"source": "assets/images/icnd2/108/4.jpg"},
+      {"source": "assets/images/icnd2/108/5.jpg"},
+      {"source": "assets/images/icnd2/108/6.jpg"},
+      {"source": "assets/images/icnd2/108/7.jpg"},
+      {"source": "assets/images/icnd2/108/8.jpg"},
+      {"source": "assets/images/icnd2/108/9.jpg"}
+    ]
+  },
+  {
+    "id": "109",
+    "type":"icnd2",
+    "topic":"Troubleshooting",
+    "numberOfAnswers": 1,
+    "name": "Scenario \n\nRefer to the topology. Your company has connected the routers R1. R2. and R3 with serial links. \nR2 and R3 are connected to the switches SW1 and SW2, respectively. SW1 and SW2 are also \nconnected to the routers R4 and R5. \nThe EIGRP routing protocol is configured. \nYou are required to troubleshoot and resolve the EIGRP issues between the various routers. \nUse the appropriate show commands to troubleshoot the issues. \n\nStudy the following output taken on R1: \nR1# Ping 10.5.5.55 source 10.1.1.1 \nType escape sequence to abort. \nSending 5.100-byte ICMP Echos to 10.5.5.55, timeout is 2 seconds: \nPacket sent with a source address of 10.1.1.1 \nWhy are the pings failing?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The network statement is missing on R5.",
+        "istrue": false
+      },
+      {
+        "answear": "The loopback interface is shut down on R5.",
+        "istrue": false
+      },
+      {
+        "answear": "The network statement is missing on R1.",
+        "istrue": true
+      },
+      {
+        "answear": "The IP address that is configured on the Lo1 interface on R5 is incorrect.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/109/1.jpg"},
+      {"source": "assets/images/icnd2/109/2.jpg"},
+      {"source": "assets/images/icnd2/109/3.jpg"},
+      {"source": "assets/images/icnd2/109/4.jpg"},
+      {"source": "assets/images/icnd2/109/5.jpg"},
+      {"source": "assets/images/icnd2/109/6.jpg"},
+      {"source": "assets/images/icnd2/109/7.jpg"},
+      {"source": "assets/images/icnd2/109/8.jpg"},
+      {"source": "assets/images/icnd2/109/9.jpg"}
+    ]
+  },
+  {
+    "id": "116",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two options are valid WAN connectivity methods?",
+    "explanation": "",
+    "choices": [{
+        "answear": "PPP",
+        "istrue": true
+      },
+      {
+        "answear": "WAP",
+        "istrue": false
+      },
+      {
+        "answear": "DSL",
+        "istrue": true
+      },
+      {
+        "answear": "L2TPv3",
+        "istrue": false
+      },
+      {
+        "answear": "Ethernet",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "117",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which WAN protocol is being used?",
+    "explanation": "",
+    "choices": [{
+        "answear": "ATM",
+        "istrue": false
+      },
+      {
+        "answear": "HDLC",
+        "istrue": false
+      },
+      {
+        "answear": "Frame Relay",
+        "istrue": true
+      },
+      {
+        "answear": "PPP",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/117.jpg"}
+    ]
+  },
+  {
+    "id": "118",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What occurs on a Frame Relay network when the CIR is exceeded?",
+    "explanation": "",
+    "choices": [{
+        "answear": "All TCP traffic is marked discard eligible.",
+        "istrue": false
+      },
+      {
+        "answear": "All UDP traffic is marked discard eligible and a BECN is sent.",
+        "istrue": false
+      },
+      {
+        "answear": "All TCP traffic is marked discard eligible and a BECN is sent. Relay",
+        "istrue": false
+      },
+      {
+        "answear": "All traffic exceeding the CIR is marked discard eligible.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "119",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 2,
+    "name": "What are two characteristics of Frame Relay point-to-point subinterfaces?",
+    "explanation": "",
+    "choices": [{
+        "answear": "They create split-horizon issues.",
+        "istrue": false
+      },
+      {
+        "answear": "They require a unique subnet within a routing domain.",
+        "istrue": true
+      },
+      {
+        "answear": "They emulate leased lines.",
+        "istrue": true
+      },
+      {
+        "answear": "They are ideal for full-mesh topologies.",
+        "istrue": false
+      },
+      {
+        "answear": "They require the use of NBMA options when using OSPF.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "120",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two statements about using the CHAP authentication mechanism in a PPP link are true?",
+    "explanation": "",
+    "choices": [{
+        "answear": "CHAP uses a two-way handshake.",
+        "istrue": false
+      },
+      {
+        "answear": "CHAP uses a three-way handshake.",
+        "istrue": true
+      },
+      {
+        "answear": "CHAP authentication periodically occurs after link establishment.",
+        "istrue": true
+      },
+      {
+        "answear": "CHAP authentication passwords are sent in plaintext.",
+        "istrue": false
+      },
+      {
+        "answear": "CHAP authentication is performed only upon link establishment.",
+        "istrue": false
+      },
+      {
+        "answear": "CHAP has no protection from playback attacks.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "121",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which command allows you to verify the encapsulation type (CISCO or IETF) for a Frame Relay link?",
+    "explanation": "",
+    "choices": [{
+        "answear": "show frame-relay lmi",
+        "istrue": false
+      },
+      {
+        "answear": "show frame-relay map",
+        "istrue": true
+      },
+      {
+        "answear": "show frame-relay pvc",
+        "istrue": false
+      },
+      {
+        "answear": "show interfaces serial",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "122",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is the purpose of Inverse ARP?",
+    "explanation": "",
+    "choices": [{
+        "answear": "to map a known IP address to a MAC address",
+        "istrue": false
+      },
+      {
+        "answear": "to map a known DLCI to a MAC address",
+        "istrue": false
+      },
+      {
+        "answear": "to map a known MAC address to an IP address",
+        "istrue": false
+      },
+      {
+        "answear": "to map a known DLCI to an IP address",
+        "istrue": true
+      },
+      {
+        "answear": "to map a known IP address to a SPID",
+        "istrue": false
+      },
+      {
+        "answear": "to map a known SPID to a MAC address",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "123",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 3,
+    "name": "A network associate has configured OSPF with the command: \nCity(config-router)# network 192.168.12.64 0.0.0.63 area 0 \nAfter completing the configuration, the associate discovers that not all the interfaces are \nparticipating in OSPF. Which three of the interfaces shown in the exhibit will participate in OSPF \naccording to this configuration statement?",
+    "explanation": "",
+    "choices": [{
+        "answear": "FastEthernet0 /0",
+        "istrue": false
+      },
+      {
+        "answear": "FastEthernet0 /1",
+        "istrue": true
+      },
+      {
+        "answear": "Serial0/0",
+        "istrue": true
+      },
+      {
+        "answear": "Serial0/1.102",
+        "istrue": true
+      },
+      {
+        "answear": "Serial0/1.103",
+        "istrue": false
+      },
+      {
+        "answear": "Serial0/1.104",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/123.jpg"}
+    ]
+  },
+  {
+    "id": "124",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is the advantage of using a multipoint interface instead of point-to-point subinterfaces when configuring a Frame Relay hub in a hub-and-spoke topology?",
+    "explanation": "",
+    "choices": [{
+        "answear": "It avoids split-horizon issues with distance vector routing protocols.",
+        "istrue": false
+      },
+      {
+        "answear": "IP addresses can be conserved if VLSM is not being used for subnetting.",
+        "istrue": true
+      },
+      {
+        "answear": "A multipoint interface offers greater security compared to point-to-point subinterface configurations.",
+        "istrue": false
+      },
+      {
+        "answear": "The multiple IP network addresses required for a multipoint interface provide greater addressing flexibility over point-to-point configurations.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "125",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 2,
+    "name": "Which two statistics appear in show frame-relay map output?",
+    "explanation": "",
+    "choices": [{
+        "answear": "the number of BECN packets that are received by the router",
+        "istrue": false
+      },
+      {
+        "answear": "the value of the local DLCI",
+        "istrue": true
+      },
+      {
+        "answear": "the number of FECN packets that are received by the router",
+        "istrue": false
+      },
+      {
+        "answear": "the status of the PVC that is configured on the router",
+        "istrue": true
+      },
+      {
+        "answear": "the IP address of the local router",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "126",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which protocol is an open standard protocol framework that is commonly used in VPNs, to provide secure end-to-end communications?",
+    "explanation": "",
+    "choices": [{
+        "answear": "RSA",
+        "istrue": false
+      },
+      {
+        "answear": "L2TP",
+        "istrue": false
+      },
+      {
+        "answear": "IPsec",
+        "istrue": true
+      },
+      {
+        "answear": "PPTP",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "127",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "At which layer of the OSI model does PPP perform?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Layer 2",
+        "istrue": true
+      },
+      {
+        "answear": "Layer 3",
+        "istrue": false
+      },
+      {
+        "answear": "Layer 4",
+        "istrue": false
+      },
+      {
+        "answear": "Layer 5",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "128",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 3,
+    "name": "The command show frame-relay map gives the following output: \nSerial 0 (up): ip 192.168.151.4 dlci 122, dynamic, broadcast, status defined, active \nWhich statements represent what is shown?",
+    "explanation": "",
+    "choices": [{
+        "answear": "192.168.151.4 represents the IP address of the remote router",
+        "istrue": true
+      },
+      {
+        "answear": "192.168.151.4 represents the IP address of the local serial interface",
+        "istrue": false
+      },
+      {
+        "answear": "DLCI 122 represents the interface of the remote serial interface",
+        "istrue": false
+      },
+      {
+        "answear": "DLCI 122 represents the local number used to connect to the remote address",
+        "istrue": true
+      },
+      {
+        "answear": "broadcast indicates that a dynamic routing protocol such as RIP v1 can send packets across this PVC",
+        "istrue": true
+      },
+      {
+        "answear": "active indicates that the ARP process is working",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "129",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 2,
+    "name": "What can be done to Frame Relay to resolve split-horizon issues?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Disable Inverse ARP.",
+        "istrue": false
+      },
+      {
+        "answear": "Create a full-mesh topology.",
+        "istrue": true
+      },
+      {
+        "answear": "Develop multipoint subinterfaces.",
+        "istrue": false
+      },
+      {
+        "answear": "Configure point-to-point subinterfaces.",
+        "istrue": true
+      },
+      {
+        "answear": "Remove the broadcast keyword from the frame-relay map command.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "130",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 3,
+    "name": "What are three reasons that an organization with multiple branch offices and roaming users might implement a Cisco VPN solution instead of point-to-point WAN links?",
+    "explanation": "",
+    "choices": [{
+        "answear": "reduced cost",
+        "istrue": true
+      },
+      {
+        "answear": "better throughput",
+        "istrue": false
+      },
+      {
+        "answear": "broadband incompatibility",
+        "istrue": false
+      },
+      {
+        "answear": "increased security",
+        "istrue": true
+      },
+      {
+        "answear": "scalability",
+        "istrue": true
+      },
+      {
+        "answear": "reduced latency",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "131",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which command is used to enable CHAP authentication, with PAP as the fallback method, on a serial interface?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Router(config-if)# ppp authentication chap fallback ppp",
+        "istrue": false
+      },
+      {
+        "answear": "Router(config-if)# ppp authentication chap pap",
+        "istrue": true
+      },
+      {
+        "answear": "Router(config-if)# authentication ppp chap fallback ppp",
+        "istrue": false
+      },
+      {
+        "answear": "Router(config-if)# authentication ppp chap pap",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "132",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is the result of issuing the frame-relay map ip 192.168.1.2 202 broadcast command?",
+    "explanation": "",
+    "choices": [{
+        "answear": "defines the destination IP address that is used in all broadcast packets on DCLI 202",
+        "istrue": false
+      },
+      {
+        "answear": "defines the source IP address that is used in all broadcast packets on DCLI 202",
+        "istrue": false
+      },
+      {
+        "answear": "defines the DLCI on which packets from the 192.168.1.2 IP address are received",
+        "istrue": false
+      },
+      {
+        "answear": "defines the DLCI that is used for all packets that are sent to the 192.168.1.2 IP address",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "133",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which Layer 2 protocol encapsulation type supports synchronous and asynchronous circuits and has built-in security mechanisms?",
+    "explanation": "",
+    "choices": [{
+        "answear": "HDLC",
+        "istrue": false
+      },
+      {
+        "answear": "PPP",
+        "istrue": true
+      },
+      {
+        "answear": "X.25",
+        "istrue": false
+      },
+      {
+        "answear": "Frame Relay",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "134",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which encapsulation type is a Frame Relay encapsulation type that is supported by Cisco routers?",
+    "explanation": "",
+    "choices": [{
+        "answear": "IETF",
+        "istrue": true
+      },
+      {
+        "answear": "ANSI Annex D",
+        "istrue": false
+      },
+      {
+        "answear": "Q9333-A Annex A",
+        "istrue": false
+      },
+      {
+        "answear": "HDLC",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "135",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "A network administrator needs to configure a serial link between the main office and a remote location. The router at the remote office is a non-Cisco router. How should the network administrator configure the serial interface of the main office router to make the connection?",
+    "explanation": "",
+    "choices": [{
+        "answear": "Main(config)# interface serial 0/0 \nMain(config-if)# ip address 172.16.1.1 255.255.255.252 \nMain(config-if)# no shut",
+        "istrue": false
+      },
+      {
+        "answear": "Main(config)# interface serial 0/0 \nMain(config-if)# ip address 172.16.1.1 255.255.255.252 \nMain(config-if)# encapsulation ppp \nMain(config-if)# no shut",
+        "istrue": true
+      },
+      {
+        "answear": "Main(config)# interface serial 0/0 \nMain(config-if)# ip address 172.16.1.1 255.255.255.252 \nMain(config-if)# encapsulation frame-relay \nMain(config-if)# authentication chap \nMain(config-if)# no shut",
+        "istrue": false
+      },
+      {
+        "answear": "Main(config)# interface serial 0/0 \nMain(config-if)#ip address 172.16.1.1 255.255.255.252 \nMain(config-if)#encapsulation ietf \nMain(config-if)# no shut",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "136",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which PPP subprotocol negotiates authentication options?",
+    "explanation": "",
+    "choices": [{
+        "answear": "NCP",
+        "istrue": false
+      },
+      {
+        "answear": "ISDN",
+        "istrue": false
+      },
+      {
+        "answear": "SLIP",
+        "istrue": false
+      },
+      {
+        "answear": "LCP",
+        "istrue": true
+      },
+      {
+        "answear": "DLCI",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "137",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What command is used to verify the DLCI destination address in a Frame Relay static configuration?",
+    "explanation": "",
+    "choices": [{
+        "answear": "show frame-relay pvc",
+        "istrue": false
+      },
+      {
+        "answear": "show frame-relay lmi",
+        "istrue": false
+      },
+      {
+        "answear": "show frame-relay map",
+        "istrue": true
+      },
+      {
+        "answear": "show frame relay end-to-end",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "138",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "The output of the show frame-relay pvc command shows 'PVC STATUS = INACTIVE'. What does this mean?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The PVC is configured correctly and is operating normally, but no data packets have been detected for more than five minutes.",
+        "istrue": false
+      },
+      {
+        "answear": "The PVC is configured correctly, is operating normally, and is no longer actively seeking the address of the remote router.",
+        "istrue": false
+      },
+      {
+        "answear": "The PVC is configured correctly, is operating normally, and is waiting for interesting traffic to trigger a call to the remote router.",
+        "istrue": false
+      },
+      {
+        "answear": "The PVC is configured correctly on the local switch, but there is a problem on the remote end of the PVC.",
+        "istrue": true
+      },
+      {
+        "answear": "The PVC is not configured on the local switch.",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "139",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "A technician pastes the configurations in the exhibit into the two new routers shown. Otherwise, the routers are configured with their default configurations. A ping from Host1 to Host2 fails, but the technician is able to ping the S0/0 interface of R2 from Host1. The configurations of the hosts have been verified as correct. What is the cause of the problem?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The serial cable on R1 needs to be replaced.",
+        "istrue": false
+      },
+      {
+        "answear": "The interfaces on R2 are not configured properly.",
+        "istrue": false
+      },
+      {
+        "answear": "R1 has no route to the 192.168.1.128 network.",
+        "istrue": true
+      },
+      {
+        "answear": "The IP addressing scheme has overlapping subnetworks.",
+        "istrue": false
+      },
+      {
+        "answear": "The ip subnet-zero command must be configured on both routers.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/139.jpg"}
+    ]
+  },
+  {
+    "id": "140",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What does the frame-relay interface-dlci command configure?",
+    "explanation": "",
+    "choices": [{
+        "answear": "local DLCI on the subinterface",
+        "istrue": true
+      },
+      {
+        "answear": "remote DLCI on the main interface",
+        "istrue": false
+      },
+      {
+        "answear": "remote DCLI on the subinterface",
+        "istrue": false
+      },
+      {
+        "answear": "local DLCI on the main interface",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "141",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "The show interfaces serial 0/1 command was issued on the R10-1 router. Based on the output displayed which statement is correct?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The cable connected to the serial 0/1 interface of the R10-1 router is a DTE cable.",
+        "istrue": false
+      },
+      {
+        "answear": "The R10-1 router can ping the router interface connected to the serial 0/1 interface.",
+        "istrue": false
+      },
+      {
+        "answear": "The clock rate used for interface serial 0/1 of the R10-1 router is 1,544,000 bits per second.",
+        "istrue": false
+      },
+      {
+        "answear": "The CSU used with the serial 0/1 interface of the R10-1 router has lost connection to the service provider.",
+        "istrue": false
+      },
+      {
+        "answear": "The interface of the remote router connected to the serial 0/1 interface of the R10-1 router is using the default serial interface encapsulation.",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/141.jpg"}
+    ]
+  },
+  {
+    "id": "142",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which statement describes DLCI 17?",
+    "explanation": "",
+    "choices": [{
+        "answear": "DLCI 17 describes the ISDN circuit between R2 and R3.",
+        "istrue": false
+      },
+      {
+        "answear": "DLCI 17 describes a PVC on R2. It cannot be used on R3 or R1.",
+        "istrue": false
+      },
+      {
+        "answear": "DLCI 17 is the Layer 2 address used by R2 to describe a PVC to R3.",
+        "istrue": true
+      },
+      {
+        "answear": "DLCI 17 describes the dial-up circuit from R2 and R3 to the service provider.",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/142.jpg"}
+    ]
+  },
+  {
+    "id": "143",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Users have been complaining that their Frame Relay connection to the corporate site is very slow.\nThe network administrator suspects that the link is overloaded. Based on the partial output of the Router # show frame relay pvc command shown in the graphic, which output value indicates to the local router that traffic sent to the corporate site is experiencing congestion?",
+    "explanation": "",
+    "choices": [{
+        "answear": "DLCI=100",
+        "istrue": false
+      },
+      {
+        "answear": "last time PVC status changed 00:25:40",
+        "istrue": false
+      },
+      {
+        "answear": "in BECN packets 192",
+        "istrue": true
+      },
+      {
+        "answear": "in FECN packets 147",
+        "istrue": false
+      },
+      {
+        "answear": "in DF packets 0",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/143.jpg"}
+    ]
+  },
+  {
+    "id": "144",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is the meaning of the term dynamic as displayed in the output of the show frame-relay map command shown?",
+    "explanation": "",
+    "choices": [{
+        "answear": "The Serial0/0 interface is passing traffic.",
+        "istrue": false
+      },
+      {
+        "answear": "The DLCI 100 was dynamically allocated by the router",
+        "istrue": false
+      },
+      {
+        "answear": "The Serial0/0 interface acquired the IP address of 172.16.3.1 from a DHCP server",
+        "istrue": false
+      },
+      {
+        "answear": "The DLCI 100 will be dynamically changed as required to adapt to changes in the Frame Relay cloud",
+        "istrue": false
+      },
+      {
+        "answear": "The mapping between DLCI 100 and the end station IP address 172.16.3.1 was learned through Inverse ARP",
+        "istrue": true
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/144.jpg"}
+    ]
+  },
+  {
+    "id": "145",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "The command frame-relay map ip 10.121.16.8 102 broadcast was entered on the router. Which of the following statements is true concerning this command?",
+    "explanation": "",
+    "choices": [{
+        "answear": "This command should be executed from the global configuration mode.",
+        "istrue": false
+      },
+      {
+        "answear": "The IP address 10.121.16.8 is the local router port used to forward data.",
+        "istrue": false
+      },
+      {
+        "answear": "102 is the remote DLCI that will receive the information.",
+        "istrue": false
+      },
+      {
+        "answear": "This command is required for all Frame Relay configurations.",
+        "istrue": false
+      },
+      {
+        "answear": "The broadcast option allows packets, such as RIP updates, to be forwarded across the PVC.",
+        "istrue": true
+      }
+    ]
+  },
+  {
+    "id": "146",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "which IP addresses would be assigned to the interfaces with point-to-point PVCs?",
+    "explanation": "",
+    "choices": [{
+        "answear": "DLCI 16 192.168.10.1/24 \nDLCI 17 192.168.10.1/24 \nDLCI 99 192.168.10.2/24 \nDLCI 28 192.168.10.3/24",
+        "istrue": false
+      },
+      {
+        "answear": "DLCI 16 192.168.10.1 /24 \nDLCI 17 192.168.11.1/24 \nDLCI 99 192.168.12.1/24 \nDLCI 28 192.168.13.1/24",
+        "istrue": false
+      },
+      {
+        "answear": "DLCI 16 192.168.10.1/24 \nDLCI 17 192.168.11.1/24 \nDLCI 99 192.168.10.2/24 \nDLCI 28 192.168.11.2/24",
+        "istrue": true
+      },
+      {
+        "answear": "DLCI 16 192.168.10.1/24 \nDLCI 17 192.168.10.2/24 \nDLCI 99 192.168.10.3/24 \nDLCI 28 192.168.10.4/24",
+        "istrue": false
+      }
+    ],
+    "images": [
+      {"source": "assets/images/icnd2/146.jpg"}
+    ]
+  },
+  {
+    "id": "147",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 3,
+    "name": "It has become necessary to configure an existing serial interface to accept a second Frame Relay virtual circuit. Which of the following are required to solve this?",
+    "explanation": "",
+    "choices": [{
+        "answear": "configure static frame relay map entries for each subinterface network.",
+        "istrue": false
+      },
+      {
+        "answear": "remove the ip address from the physical interface",
+        "istrue": true
+      },
+      {
+        "answear": "create the virtual interfaces with the interface command",
+        "istrue": true
+      },
+      {
+        "answear": "configure each subinterface with its own IP address",
+        "istrue": true
+      },
+      {
+        "answear": "disable split horizon to prevent routing loops between the subinterface networks",
+        "istrue": false
+      },
+      {
+        "answear": "encapsulate the physical interface with multipoint PPP",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "148",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "Which feature does PPP use to encapsulate multiple protocols?",
+    "explanation": "",
+    "choices": [{
+        "answear": "NCP",
+        "istrue": true
+      },
+      {
+        "answear": "LCP",
+        "istrue": false
+      },
+      {
+        "answear": "IPCP",
+        "istrue": false
+      },
+      {
+        "answear": "IPXP",
+        "istrue": false
+      }
+    ]
+  },
+  {
+    "id": "149",
+    "type":"icnd2",
+    "topic":"WAN Technologies",
+    "numberOfAnswers": 1,
+    "name": "What is the purpose of LCP?",
+    "explanation": "",
+    "choices": [{
+        "answear": "to perform authentication",
+        "istrue": false
+      },
+      {
+        "answear": "to negotiate control options",
+        "istrue": true
+      },
+      {
+        "answear": "to encapsulate multiple protocols",
+        "istrue": false
+      },
+      {
+        "answear": "to specify asynchronous versus synchronous",
         "istrue": false
       }
     ]
   }
+
+
+
+
+
+
+
 ]

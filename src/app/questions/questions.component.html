@@ -1,21 +1,174 @@
-<p-dropdown [options]="tests" [(ngModel)]="selectedTest" (onChange)="setQuestionsUrl(selectedTest.url)" placeholder="Select a Test"
-  optionLabel="name"></p-dropdown>
-<div *ngIf="selectedTest">
-  <div class="ui-g">
-    <p-pickList [source]="sourceQuestions" [target]="selectedQuestions" [metaKeySelection]="false" [showSourceControls]="false"
-      [showTargetControls]="false" [responsive]="true" sourceFilterPlaceholder="Search by ID" targetFilterPlaceholder="Search by ID"
-      dragdrop="true" sourceHeader="Διαθέσιμες Ερωτήσεις({{sourceQuestions.length}})" targetHeader="Επιλεγμένες Ερωτήσεις({{selectedQuestions.length}})"
-      [sourceStyle]="{'height':'600px', 'width' : '100%'}" filterBy="id" [targetStyle]="{'height':'600px', 'width' : '100%'}"
-      styleClass="p" (click)="addSelected()">
-      <ng-template let-question pTemplate="item">
-        <div class="ui-g">
-          <div style="font-size:14px;float:right;margin:15px 5px 0 0">
-            <b>{{question.id}})</b> - {{question.name}}</div>
+<div class="container-fluid">
+
+  <div class="row mt-2">
+    <div class="col-md-5">
+      <div class="table-title ">
+        <h3>Available Questions({{(sourceQuestions | filter: topic).length}})</h3>
+        <div ngbDropdown class="d-inline-block sm-margin">
+          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>
+            <label class="no-margin" *ngIf="!selectedTest">Select Test</label>
+            <label class="no-margin" *ngIf="selectedTest">{{selectedTest.name}}</label>
+
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" *ngFor="let selectedTest of tests" (click)="setQuestionsUrl(selectedTest)">{{selectedTest.name}}</button>
+          </div>
         </div>
-      </ng-template>
-    </p-pickList>
+        <div ngbDropdown class="d-inline-block sm-margin">
+          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>
+            <label class="no-margin" *ngIf="!topic">Topic</label>
+            <label class="no-margin" *ngIf="topic">{{topic}}</label>
+
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" *ngFor="let topic of selectedTest.topics" (click)="setTopic(topic)">{{topic}}</button>
+          </div>
+
+        </div>
+        <hr>
+      </div>
+      <div class="div-md  bg-l-gray shadow p-3 mb-1">
+        <table class="table">
+          <thead class="">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Topic: {{topic}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let question of sourceQuestions| filter: topic">
+
+              <td class="align-middle">
+                {{question.id}})
+              </td>
+              <td class="align-middle">
+
+                <label class="hover-list font-weight-normal mb-0 " (click)="openQuestionDetails(content)"> {{question.name}} (Choose:{{question.numberOfAnswers}})</label>
+              </td>
+              <td class="align-middle">
+                <label class="font-weight-normal mb-0" (click)="setSelected(question, sourceQuestions, selectedQuestions)">
+                  <i class="fa fa-plus-square hover text-success" style="font-size:2em;"></i>
+                </label>
+              </td>
+
+
+              <!-- Question Modal -->
+              <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header bg-l-gray">
+                    <label class="json-format">
+                        <h5 class="modal-title"><b>{{question.id}})</b> - {{question.name}}</h5>
+                    </label>
+
+
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body bg-l-gray">
+
+                      <ngb-tabset *ngIf="question.images">
+                      <ngb-tab *ngFor="let image of question.images;index as i" title="Image {{1+i}}">
+                        <ng-template ngbTabContent>
+                          <img [src]="image.source" alt="Image">
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+
+                    <h4>Choices</h4>
+                    <hr>
+                    <p *ngFor="let choice of question.choices;index as i" [ngClass] = "{'correct-choice' : choice.istrue == true}" class="font-weight-normal json-format" >
+
+
+                      {{numToLetter(i)}}) {{choice.answear}}
+                    </p>
+
+                    <h4>Description</h4>
+                    <ngb-tabset *ngIf="question.imagesEx">
+                        <ngb-tab *ngFor="let image of question.imagesEx;index as i" title="Image {{1+i}}">
+                          <ng-template ngbTabContent>
+                            <img [src]="image.source" alt="Image">
+                          </ng-template>
+                        </ngb-tab>
+                      </ngb-tabset>
+                    <p class="font-weight-normal json-format">
+                      {{question.explanation}}
+                    </p>
+
+                  </div>
+                  <div class="modal-footer bg-l-gray">
+                      <label class="font-weight-normal mb-0 hover" (click)="setSelected(question, sourceQuestions, selectedQuestions); d('Cross click')">
+                          <i class="fa fa-plus-square  text-success mr-2" style="font-size:1em;"><label class="show-pointer" style="font-family: 'Roboto', sans-serif !important;">Add To Test</label> </i>
+                      </label>
+                    <button type="button" class="btn " (click)="c('Close click')">Close</button>
+                  </div>
+                </ng-template>
+
+
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button [disabled]="selectedQuestions.length > 0 ? false : true" type="button" class="btn btn-primary sm-margin" (click)="openSm(confirmModal)">OK</button>
+      <button type="button" class="btn btn-danger sm-margin" routerLink="/control_panel">Cancel</button>
+      <a href="{{selectedTest.pdf}}" target="_blank" style="float: right;">Open <b>{{selectedTest.name}}</b> Document</a>
+    </div>
+
+    <div class="col-md-2 "></div>
+
+    <div class="col-md-5 ">
+      <div class="table-title">
+        <h3>Selected Questions({{selectedQuestions.length}})</h3>
+        <button type="button" class="btn btn-warning sm-margin" (click)="getQuestions()">Reset</button>
+        <hr>
+      </div>
+      <div class="div-md bg-l-gray shadow p-3 mb-1  rounded">
+        <table class="table">
+          <tbody>
+            <tr *ngIf="!(selectedQuestions.length > 0)">
+              <td class="align-middle">
+                <h2>Empty</h2>
+              </td>
+            </tr>
+            <tr *ngFor="let selected of selectedQuestions">
+              <td class="align-middle">
+                {{selected.id}})
+              </td>
+
+              <td class="align-middle">
+                <label class="font-weight-normal mb-0">{{selected.name}}</label>
+              </td>
+              <td class="align-middle">
+                <label class="hover-list font-weight-normal mb-0" (click)="setSelected(selected, selectedQuestions, sourceQuestions)">
+                  <i class="fa fa-minus-square hover text-warning" style="font-size:2em"></i>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
   </div>
-  <br>
-  <button pButton label="OK" type="button" style="width: 150px" (click)="addSelected()" routerLink="/control_panel"></button>
-  <button pButton label="Cancel" type="button" style="width: 150px" routerLink="/control_panel"></button>
+
 </div>
+
+<ng-template #confirmModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Set Time</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-auto sm-margin">
+      <input [(ngModel)]="testTime" type="number" class="form-control" placeholder="Time in minutes">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button [disabled]="testTime ? false : true" type="button" class="btn btn-primary" (click)="addSelected(); c('Close click')">Continue</button>
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Cancel</button>
+  </div>
+</ng-template>
